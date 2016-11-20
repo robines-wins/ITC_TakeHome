@@ -92,6 +92,15 @@ Solignac Robin 235020
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\typ}[1]{\mathcal{A}_{\epsilon}^{(n)}\left(#1\right)}
+{\mathcal{A}_{\epsilon}^{(n)}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Ex 2
 \end_layout
