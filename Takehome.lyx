@@ -303,8 +303,7 @@ from our codebook generation process
 \begin_inset Formula $i\neq1$
 \end_inset
 
- and so we can apply inequality the inequality (7.53) from the course: and
- get 
+ and so we can apply inequality 11111111111 from the course: and get 
 \begin_inset Formula $E_{i}\leq2^{-n(I(S,Y)-\epsilon)}$
 \end_inset
 
