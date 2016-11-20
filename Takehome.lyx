@@ -56,8 +56,8 @@
 \end_index
 \secnumdepth -2
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -96,6 +96,200 @@ Solignac Robin 235020
 \begin_inset FormulaMacro
 \newcommand{\typ}[1]{\mathcal{A}_{\epsilon}^{(n)}\left(#1\right)}
 {\mathcal{A}_{\epsilon}^{(n)}\left(#1\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ex 1
+\end_layout
+
+\begin_layout Standard
+first we have 
+\begin_inset Formula $p(y)=\prod p(y_{i}|x_{i})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(a)
+\end_layout
+
+\begin_layout Standard
+we have 
+\begin_inset Formula $\tilde{S^{n}}$
+\end_inset
+
+ idependent of 
+\begin_inset Formula $S^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{n}$
+\end_inset
+
+ but with the same marginal 
+\begin_inset Formula $p(s)$
+\end_inset
+
+.
+ so we have 
+\begin_inset Formula 
+\begin{align*}
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & =\sum_{(s^{n},y^{n})\in\typ{S,Y}}p(s^{n})p(y^{n})\\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq\sum_{(s^{n},y^{n})\in\typ{S,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(H(S,Y)+\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(I(S,Y)-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(b)
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula $\tilde{X^{n}}$
+\end_inset
+
+ idependant from 
+\begin_inset Formula $(S^{n},X^{n},Y^{n})$
+\end_inset
+
+ so in particular 
+\begin_inset Formula $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x}^{n})p(s^{n},y^{n})$
+\end_inset
+
+.
+ and so
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(\tilde{x}^{n})p(s^{n},y^{n})\\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(I(X;Y,S)-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(c)
+\end_layout
+
+\begin_layout Standard
+First, if 
+\begin_inset Formula $(s^{n},y^{n})\in\typ{S,Y}$
+\end_inset
+
+ then we have 
+\begin_inset Formula $p(s^{n},y^{n})\leq2^{-n(H(S,Y)-\epsilon)}$
+\end_inset
+
+ and 
+\begin_inset Formula $p(s^{n})\geq2^{-n(H(S)+\epsilon)}$
+\end_inset
+
+ so 
+\begin_inset Formula $p(y^{n}|s^{n})=\frac{p(s^{n},y^{n})}{p(s^{n})}\leq\frac{2^{-n(H(S,Y)-\epsilon)}}{2^{-n(H(S)+\epsilon)}}=2^{-n(H(Y|S)-2\epsilon)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By replacing 
+\begin_inset Formula $Y$
+\end_inset
+
+ by 
+\begin_inset Formula $X$
+\end_inset
+
+ we get also 
+\begin_inset Formula $p(x^{n}|s^{n})\leq2^{-n(H(X|S)-2\epsilon)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we have 
+\begin_inset Formula $\tilde{X^{n}}$
+\end_inset
+
+ which is also compute from 
+\begin_inset Formula $S^{n}$
+\end_inset
+
+ but idenpently from the computation of 
+\begin_inset Formula $X^{n}$
+\end_inset
+
+ from 
+\begin_inset Formula $S^{n}$
+\end_inset
+
+ and so indpenent of the generation of 
+\begin_inset Formula $Y^{n}$
+\end_inset
+
+ form 
+\begin_inset Formula $X^{n}$
+\end_inset
+
+.
+ This mean 
+\begin_inset Formula $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x^{n}},y^{n}|s)p(s)=p(\tilde{x^{n}}|s)p(y^{n}|s)p(s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+p(y^{n},\tilde{x^{n}},s^{n}) & =p(\tilde{x^{n}},y^{n}|s)p(s)\\
+ & =p(y^{n}|s^{n},\tilde{x^{n}})p(\tilde{x^{n}}|s)p(s))\\
+ & =\left[\sum_{x}p(y^{n}|x^{n},\tilde{x^{n}})p(x^{n}|s^{n},\tilde{x^{n}})\right]p(\tilde{x^{n}}|s)p(s)\\
+ & =\left[\sum_{x}p(y^{n}|x^{n})p(x^{n}|s^{n})\right]p(\tilde{x^{n}}|s)p(s)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so we get 
+\begin_inset Formula 
+\begin{align*}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\\
+ & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X|S)-2\epsilon)}2^{-n(H(Y|S)-2\epsilon)}2^{-n(H(S)-\epsilon)}\\
+ & \leq2^{n(H(X|S)+H(Y|S)-H(X,Y,S)-6\epsilon)}\\
+ & \leq2^{n(I(X;Y|S)-6\epsilon)}
+\end{align*}
+
 \end_inset
 
 
@@ -483,7 +677,7 @@ Also From our codebook generation process,
 \end_inset
 
  is independent from 
-\begin_inset Formula $x^{n}(i,1)$
+\begin_inset Formula $x^{n}(1,1)$
 \end_inset
 
  so we can use 222222222 to bound 
