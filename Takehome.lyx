@@ -137,12 +137,12 @@ we have
 .
  so we have 
 \begin_inset Formula 
-\begin{align*}
-\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & =\sum_{(s^{n},y^{n})\in\typ{S,Y}}p(s^{n})p(y^{n})\\
-\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq\sum_{(s^{n},y^{n})\in\typ{S,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\\
-\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(H(S,Y)+\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\\
-\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(I(S,Y)-3\epsilon)}
-\end{align*}
+\begin{align}
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & =\sum_{(s^{n},y^{n})\in\typ{S,Y}}p(s^{n})p(y^{n})\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq\sum_{(s^{n},y^{n})\in\typ{S,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(H(S,Y)+\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{-n(I(S,Y)-3\epsilon)}\label{eq:1.a}
+\end{align}
 
 \end_inset
 
@@ -172,12 +172,12 @@ We have
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(\tilde{x}^{n})p(s^{n},y^{n})\\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(I(X;Y,S)-3\epsilon)}
-\end{align*}
+\begin{align}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(\tilde{x}^{n})p(s^{n},y^{n})\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
+\end{align}
 
 \end_inset
 
@@ -283,12 +283,12 @@ p(y^{n},\tilde{x^{n}},s^{n}) & =p(\tilde{x^{n}},y^{n}|s)p(s)\\
 \begin_layout Standard
 so we get 
 \begin_inset Formula 
-\begin{align*}
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\\
- & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X|S)-2\epsilon)}2^{-n(H(Y|S)-2\epsilon)}2^{-n(H(S)-\epsilon)}\\
- & \leq2^{n(H(X|S)+H(Y|S)-H(X,Y,S)-6\epsilon)}\\
- & \leq2^{n(I(X;Y|S)-6\epsilon)}
-\end{align*}
+\begin{align}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\nonumber \\
+ & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X|S)-2\epsilon)}2^{-n(H(Y|S)-2\epsilon)}2^{-n(H(S)-\epsilon)}\nonumber \\
+ & \leq2^{n(H(X|S)+H(Y|S)-H(X,Y,S)-6\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(I(X;Y|S)-6\epsilon)}\label{eq:1.c}
+\end{align}
 
 \end_inset
 
@@ -497,7 +497,14 @@ from our codebook generation process
 \begin_inset Formula $i\neq1$
 \end_inset
 
- and so we can apply inequality 11111111111 from the course: and get 
+ and so we can apply inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.a"
+
+\end_inset
+
+: and get 
 \begin_inset Formula $E_{i}\leq2^{-n(I(S,Y)-\epsilon)}$
 \end_inset
 
@@ -561,6 +568,61 @@ so with
 
 \begin_layout Subsection
 (d)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]=\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's define 
+\begin_inset Formula $E_{\text{1,(i,j)}}$
+\end_inset
+
+ the event 
+\begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
+\end_inset
+
+ where 
+\begin_inset Formula $Y_{1}^{n}$
+\end_inset
+
+ is the message receive from the channel by 
+\begin_inset Formula $D_{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $E_{1,j}$
+\end_inset
+
+ the event 
+\begin_inset Formula $\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
+\end_inset
+
+.
+ That's mean: 
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{j,(1,j)}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,j)}\right)|t_{1,1}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\Pr\left(E_{j,(1,j)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y|S)-6\epsilon)}+\sum_{j=2}^{2^{nR_{2}}}???+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X,S;Y-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(old d)
 \end_layout
 
 \begin_layout Standard
