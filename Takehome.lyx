@@ -245,7 +245,7 @@ Let's define
 
  are jointly typical.
  where 
-\begin_inset Formula $Y_{2}$
+\begin_inset Formula $Y_{2}^{n}$
 \end_inset
 
  is the message receive by 
@@ -254,7 +254,7 @@ Let's define
 
 .
  so 
-\begin_inset Formula $E_{2,i}=(s^{n}(i),Y_{2})\in\mathcal{A}_{\epsilon}^{(n)}(S,Y)$
+\begin_inset Formula $E_{2,i}=(s^{n}(i),Y_{2}^{n})\in\mathcal{A}_{\epsilon}^{(n)}(S,Y_{2})$
 \end_inset
 
 
@@ -262,7 +262,7 @@ Let's define
 
 \begin_layout Standard
 so 
-\begin_inset Formula $\varepsilon_{2,1}|t_{1,1}=E_{2,1}^{c}\cup\bigcup_{i=2}^{2^{nR_{2}}}E_{2,i}$
+\begin_inset Formula $\varepsilon_{2,1}|t_{1,1}=E_{2,1}^{c}\cup\bigcup_{i=2}^{2^{nR_{2}}}E_{2,i}|t_{1,1}$
 \end_inset
 
  and so by using the union bound
@@ -303,7 +303,8 @@ from our codebook generation process
 \begin_inset Formula $i\neq1$
 \end_inset
 
- and so we can apply inequality 111111111 and get 
+ and so we can apply inequality the inequality (7.53) from the course: and
+ get 
 \begin_inset Formula $E_{i}\leq2^{-n(I(S,Y)-\epsilon)}$
 \end_inset
 
@@ -381,7 +382,153 @@ so with
 \end_layout
 
 \begin_layout Standard
-Let's define
+Let's define 
+\begin_inset Formula $E_{\text{1,(i,j)}}$
+\end_inset
+
+ the event 
+\begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
+\end_inset
+
+ where 
+\begin_inset Formula $Y_{1}^{n}$
+\end_inset
+
+ is the message receive from the channel by 
+\begin_inset Formula $D_{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $E_{1,j}$
+\end_inset
+
+ the event 
+\begin_inset Formula $\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
+\end_inset
+
+.
+ That's mean: 
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=1}^{2^{nR_{1}}}E_{1,(i,j)}\right)\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we look at definition of join typicality, then we get 
+\begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}\Rightarrow\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
+\end_inset
+
+ so 
+\begin_inset Formula $E_{1,(i,j)}\subseteq E_{1,j}$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{1,(1,1)}|t_{1,1} & \subseteq E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{1,j}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{1,j}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}\right)\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr(E_{1(1,1)}^{c}|t_{1,1})+\sum_{j=2}^{2^{nR_{2}}}\Pr(E_{1,j}|t_{1,1})+\sum_{i=2}^{2^{nR_{1}}}\Pr(E_{1,(i,1)}|t_{1,1})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the last step came from union bound.
+ Then we have: 
+\end_layout
+
+\begin_layout Itemize
+From properties of typical sequence : 
+\begin_inset Formula $\Pr(E_{1(1,1)}^{c})\leq\epsilon$
+\end_inset
+
+ for 
+\begin_inset Formula $n$
+\end_inset
+
+ large enough
+\end_layout
+
+\begin_layout Itemize
+From our codebook construction procees 
+\begin_inset Formula $s^{n}(j)$
+\end_inset
+
+ is independent from 
+\begin_inset Formula $s^{n}(1)$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq1$
+\end_inset
+
+ so we can use 11111111 to bound 
+\begin_inset Formula $\Pr(E_{1,j})=\Pr\left(\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Also From our codebook generation process, 
+\begin_inset Formula $x^{n}(i,1)$
+\end_inset
+
+ is independent from 
+\begin_inset Formula $x^{n}(i,1)$
+\end_inset
+
+ so we can use 222222222 to bound 
+\begin_inset Formula $\Pr(E_{1,(i,1)})=\left(s^{n}(1),x^{n}(i,1),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{j=2}^{2^{nR_{2}}}2^{-n(I(S;Y_{1})-3\epsilon)}+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y_{1}|S)-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{nR_{2}}*2^{-n(I(S;Y_{1})-3\epsilon)}+2^{nR_{1}}*2^{-n(I(X;Y_{1}|S)-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{-3n\epsilon}*2^{-n(I(S;Y_{1})-R_{2})}+2^{-3n\epsilon}*2^{-n(I(X;Y_{1}|S)-R_{1})}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And so we get: we can make 
+\begin_inset Formula $\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]$
+\end_inset
+
+ as small as we want by choosing 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and a sufficently large 
+\begin_inset Formula $n$
+\end_inset
+
+ if 
+\begin_inset Formula $R_{2}<I(S;Y_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{1}<I(X;Y_{1}|S)$
+\end_inset
+
+
 \end_layout
 
 \end_body
