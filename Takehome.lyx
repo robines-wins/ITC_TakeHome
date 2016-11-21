@@ -791,180 +791,6 @@ and we can make this upper bound as small as we want the right chose of
 
 \end_layout
 
-\begin_layout Subsection
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Subsection
-(old d)
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\[
-\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]=\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Let's define 
-\begin_inset Formula $E_{\text{1,(i,j)}}$
-\end_inset
-
- the event 
-\begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
-\end_inset
-
- where 
-\begin_inset Formula $Y_{1}^{n}$
-\end_inset
-
- is the message receive from the channel by 
-\begin_inset Formula $D_{1}$
-\end_inset
-
-, and 
-\begin_inset Formula $E_{1,j}$
-\end_inset
-
- the event 
-\begin_inset Formula $\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
-\end_inset
-
-.
- That's mean: 
-\begin_inset Formula 
-\begin{align*}
-\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
-\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=1}^{2^{nR_{1}}}E_{1,(i,j)}\right)\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-If we look at definition of join typicality, then we get 
-\begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}\Rightarrow\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
-\end_inset
-
- so 
-\begin_inset Formula $E_{1,(i,j)}\subseteq E_{1,j}$
-\end_inset
-
- and so 
-\begin_inset Formula 
-\begin{align*}
-\varepsilon_{1,(1,1)}|t_{1,1} & \subseteq E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{1,j}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{1,j}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}|t_{1,1}\right)\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr(E_{1(1,1)}^{c}|t_{1,1})+\sum_{j=2}^{2^{nR_{2}}}\Pr(E_{1,j}|t_{1,1})+\sum_{i=2}^{2^{nR_{1}}}\Pr(E_{1,(i,1)}|t_{1,1})
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-where the last step came from union bound.
- Then we have: 
-\end_layout
-
-\begin_layout Itemize
-From properties of typical sequence : 
-\begin_inset Formula $\Pr(E_{1(1,1)}^{c})\leq\epsilon$
-\end_inset
-
- for 
-\begin_inset Formula $n$
-\end_inset
-
- large enough
-\end_layout
-
-\begin_layout Itemize
-From our codebook construction procees 
-\begin_inset Formula $s^{n}(j)$
-\end_inset
-
- is independent from 
-\begin_inset Formula $s^{n}(1)$
-\end_inset
-
- for 
-\begin_inset Formula $i\neq1$
-\end_inset
-
- so we can use 11111111 to bound 
-\begin_inset Formula $\Pr(E_{1,j})=\Pr\left(\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}\right)$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-Also From our codebook generation process, 
-\begin_inset Formula $x^{n}(i,1)$
-\end_inset
-
- is independent from 
-\begin_inset Formula $x^{n}(1,1)$
-\end_inset
-
- so we can use 222222222 to bound 
-\begin_inset Formula $\Pr(E_{1,(i,1)})=\left(s^{n}(1),x^{n}(i,1),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align*}
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{j=2}^{2^{nR_{2}}}2^{-n(I(S;Y_{1})-3\epsilon)}+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y_{1},S)-3\epsilon)}\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{nR_{2}}*2^{-n(I(S;Y_{1})-3\epsilon)}+2^{nR_{1}}*2^{-n(I(X;Y_{1},S)-3\epsilon)}\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{-3n\epsilon}*2^{-n(I(S;Y_{1})-R_{2})}+2^{-3n\epsilon}*2^{-n(I(X;Y_{1},S)-R_{1})}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-And so we get: we can make 
-\begin_inset Formula $\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]$
-\end_inset
-
- as small as we want by choosing 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- and a sufficently large 
-\begin_inset Formula $n$
-\end_inset
-
- if 
-\begin_inset Formula $R_{2}<I(S;Y_{1})$
-\end_inset
-
- and 
-\begin_inset Formula $R_{1}<I(X;Y_{1},S)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Ex 3
 \end_layout
@@ -1060,7 +886,7 @@ p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1}
 \end_layout
 
 \begin_layout Standard
-because all element are positive (idicator function and size of set) then
+because all element are positive (indicator function and size of set) then
  
 \begin_inset Formula $p(u_{1},u_{2})\geq0$
 \end_inset
@@ -1140,7 +966,7 @@ now we want
 \end_inset
 
 .
- As deterministicaly we have 
+ As deterministically we have 
 \begin_inset Formula $y_{1}=f_{1}(x(u_{1},y_{2}))$
 \end_inset
 
@@ -1148,12 +974,12 @@ now we want
 \begin_inset Formula $\Pr(Y_{1}=U_{1})=\Pr(Y_{1}=f_{1}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{1}^{-1}(U_{1})\right)=1$
 \end_inset
 
- from what we derived in the previous pragraph.
+ from what we derived in the previous paragraph.
  
 \end_layout
 
 \begin_layout Standard
-Symetricaly: 
+Symmetrically: 
 \begin_inset Formula $\Pr(Y_{2}=U_{2})=\Pr(Y_{2}=f_{2}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{2}^{-1}(U_{2})\right)=1$
 \end_inset
 
@@ -1164,11 +990,107 @@ Symetricaly:
 (b).
 \end_layout
 
+\begin_layout Paragraph
+case when 
+\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})=\varnothing$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+if it exist 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ in such that 
+\begin_inset Formula $f_{1}^{-1}(a)\cap f_{2}^{-1}(b)=\varnothing$
+\end_inset
+
+ then by definition there's no 
+\begin_inset Formula $w\in\mathcal{X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{2}(w)=a\wedge f_{2}(w)=b$
+\end_inset
+
+ .so 
+\begin_inset Formula $\Pr_{f_{1}(Z),f_{2}(Z)}\left(a,b\right)=0$
+\end_inset
+
+ .
+ so if we set in our distribution 
+\begin_inset Formula $p(a,b)=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\Pr\left(f_{1}\left(x(a,b)\right),f_{2}\left(x(a,b)\right)\right)=0$
+\end_inset
+
+ and it's match.
+\end_layout
+
+\begin_layout Standard
+So here we have in distribution 
+\begin_inset Formula $\left(f_{1}(Z),f_{2}(Z)\right)=\left(f_{1}(x(U_{1},U_{2})),f_{2}(x(U_{1},U_{2}))\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+case when 
+\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now that we know that 
+\begin_inset Formula $\Pr_{U_{1},U_{2}}\left(a,b|f_{1}^{-1}(a)\cap f_{2}^{-1}(b)\neq\varnothing\right)=0$
+\end_inset
+
+ then again we have 
+\begin_inset Formula $f_{1}\left(x(a,b)\right)=a$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{2}\left(x(a,b)\right)=b$
+\end_inset
+
+.
+ so we want to match the distribution of 
+\begin_inset Formula $\left(f_{1}(Z),f_{2}(Z)\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $(U_{1},U_{2})$
+\end_inset
+
+.
+ And we have in general that for any function 
+\begin_inset Formula $f$
+\end_inset
+
+ 
+\begin_inset Formula $\Pr\left(f(x)\right)=\sum_{w\,:\,f(w)=f(x)}\Pr(w)$
+\end_inset
+
+.
+ So 
 \begin_inset Formula 
-\[
-p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)
-\]
+\begin{align*}
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w),f_{2}(w)=f_{1}(z),f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w)=f_{1}(z)\wedge f_{2}(w)=f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w)=f_{1}(z)\wedge f_{2}(w)=f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\in f_{1}^{-1}(f_{1}(z))\cap f_{2}^{-1}(f_{2}(z))}p_{z}(w)
+\end{align*}
 
 \end_inset
 
@@ -1176,18 +1098,47 @@ p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\Pr\left(f_{1}(z),f_{2}(z)\right)$
+So if we set 
+\begin_inset Formula $p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)$
 \end_inset
 
- is the sum of all 
-\begin_inset Formula $p_{z}(w)$
+
+\end_layout
+
+\begin_layout Standard
+and so we have in distribution 
+\begin_inset Formula $\left(\left(f_{1}(Z),f_{2}(Z)\right)=\left(U_{1},U_{2}\right)=\left(f_{1}(x(U_{1},U_{2}),f_{2}(x(U_{1},U_{2})\right)\right)$
 \end_inset
 
- such that 
-\begin_inset Formula $f(w)=z$
+.
+\end_layout
+
+\begin_layout Paragraph
+Conclusion.
+\end_layout
+
+\begin_layout Standard
+Let's note that if 
+\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})=\varnothing$
 \end_inset
 
- 
+ then 
+\begin_inset Formula $\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)=0$
+\end_inset
+
+, then we have that the distribution 
+\begin_inset Formula $p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)$
+\end_inset
+
+ makes that 
+\begin_inset Formula $\left(f_{1}(x(U_{1},U_{2}),f_{2}(x(U_{1},U_{2})\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(f_{1}(Z),f_{2}(Z)\right)$
+\end_inset
+
+ to have the same distribution
 \end_layout
 
 \end_body
