@@ -856,5 +856,110 @@ first we have
 
 \end_layout
 
+\begin_layout Section
+Ex 5
+\end_layout
+
+\begin_layout Subsection
+(a)
+\end_layout
+
+\begin_layout Standard
+we can define 
+\begin_inset Formula $p(u_{1},u_{2})$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+this translate to this procsses: 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+ is choose at random uniformaly (so 
+\begin_inset Formula $p(u_{1})=\frac{1}{\left|\mathcal{U}_{1}\right|}$
+\end_inset
+
+) and then in the set of preimages of 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+ via 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ (so in 
+\begin_inset Formula $f_{1}^{-1}(u_{1})$
+\end_inset
+
+ ) we select one element 
+\begin_inset Formula $w$
+\end_inset
+
+ at random uniform and take 
+\begin_inset Formula $u_{2}=f_{2}(w)$
+\end_inset
+
+ so 
+\begin_inset Formula $w\in f_{1}^{-1}(u_{1})\land w\in f_{2}^{-1}(u_{2})$
+\end_inset
+
+ so 
+\begin_inset Formula $w\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})$
+\end_inset
+
+ which mean 
+\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
+\end_inset
+
+.
+ we now formalize this process.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p(u_{1},w,u_{2})=p(u_{1})p(w|u_{1})p(u_{2}|w)$
+\end_inset
+
+ each element is define: 
+\begin_inset Formula $p(u_{1})=\frac{1}{\left|\mathcal{U}_{1}\right|}$
+\end_inset
+
+ 
+\begin_inset Formula $p(w|u_{1})=\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}$
+\end_inset
+
+ and 
+\begin_inset Formula $p(u_{2}|w)=\begin{cases}
+1 & f_{2}(w)=u_{2}\\
+0 & \text{otherwise}
+\end{cases}=\boldsymbol{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+p(u_{1},u_{2}) & =\sum_{\forall w}p(u_{1},w,u_{2})\\
+p(u_{1},u_{2}) & =\sum_{\forall w}p(u_{1})p(w|u_{1})p(u_{2}|w)\\
+p(u_{1},u_{2}) & =p(u_{1})\sum_{w\in f_{1}^{-1}(u_{1})}p(w|u_{1})p(u_{2}|w)\\
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
