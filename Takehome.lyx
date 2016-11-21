@@ -105,24 +105,16 @@ Solignac Robin 235020
 Ex 1
 \end_layout
 
-\begin_layout Standard
-first we have 
-\begin_inset Formula $p(y)=\prod p(y_{i}|x_{i})$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 (a)
 \end_layout
 
 \begin_layout Standard
-we have 
+We have 
 \begin_inset Formula $\tilde{S^{n}}$
 \end_inset
 
- idependent of 
+ independent of 
 \begin_inset Formula $S^{n}$
 \end_inset
 
@@ -158,26 +150,81 @@ We have
 \begin_inset Formula $\tilde{X^{n}}$
 \end_inset
 
- idependant from 
+ independent from 
 \begin_inset Formula $(S^{n},X^{n},Y^{n})$
 \end_inset
 
- so in particular 
-\begin_inset Formula $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x}^{n})p(s^{n},y^{n})$
+ but it has the same marginal as 
+\begin_inset Formula $X^{n}$
 \end_inset
 
 .
- and so
+ so in particular 
+\begin_inset Formula $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x^{n}})p(s^{n},y^{n})$
+\end_inset
+
+.
+ And so
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(\tilde{x}^{n})p(s^{n},y^{n})\nonumber \\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n})p(s^{n},y^{n})\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
 \end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note for later: One thing we can note here is that this inequality does
+ not depend on what the distribution of 
+\begin_inset Formula $p(s^{n},y^{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $p(x^{n})$
+\end_inset
+
+ it just rely on the fact that 
+\begin_inset Formula $\tilde{X^{n}}$
+\end_inset
+
+ is independent of 
+\begin_inset Formula $S^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y^{n}$
+\end_inset
+
+ and that it has the same marginal as 
+\begin_inset Formula $X^{n}$
+\end_inset
+
+.
+ But if we switch and take 
+\begin_inset Formula $\tilde{Y^{n}}$
+\end_inset
+
+ independent of 
+\begin_inset Formula $S^{n},X^{n}$
+\end_inset
+
+ (with same marginal as 
+\begin_inset Formula $Y^{n}$
+\end_inset
+
+) then we get 
+\begin_inset Formula 
+\begin{equation}
+\Pr\left((S^{n},X^{n},\tilde{Y^{n}})\in\typ{S,X,Y}\right)\leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b bis}
+\end{equation}
 
 \end_inset
 
@@ -233,7 +280,7 @@ Now we have
 \begin_inset Formula $S^{n}$
 \end_inset
 
- but idenpently from the computation of 
+ but independent from the computation of 
 \begin_inset Formula $X^{n}$
 \end_inset
 
@@ -241,40 +288,21 @@ Now we have
 \begin_inset Formula $S^{n}$
 \end_inset
 
- and so indpenent of the generation of 
+ and so independent of the generation of 
 \begin_inset Formula $Y^{n}$
 \end_inset
 
  form 
+\begin_inset Formula $S^{n}$
+\end_inset
+
+ by the intermediate of 
 \begin_inset Formula $X^{n}$
 \end_inset
 
 .
  This mean 
 \begin_inset Formula $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x^{n}},y^{n}|s)p(s)=p(\tilde{x^{n}}|s)p(y^{n}|s)p(s)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{align*}
-p(y^{n},\tilde{x^{n}},s^{n}) & =p(\tilde{x^{n}},y^{n}|s)p(s)\\
- & =p(y^{n}|s^{n},\tilde{x^{n}})p(\tilde{x^{n}}|s)p(s))\\
- & =\left[\sum_{x}p(y^{n}|x^{n},\tilde{x^{n}})p(x^{n}|s^{n},\tilde{x^{n}})\right]p(\tilde{x^{n}}|s)p(s)\\
- & =\left[\sum_{x}p(y^{n}|x^{n})p(x^{n}|s^{n})\right]p(\tilde{x^{n}}|s)p(s)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 
@@ -312,7 +340,7 @@ the message pair
 \begin_inset Formula $(m_{1}=i,m_{2}=j)$
 \end_inset
 
- was transmited
+ was transmitted
 \begin_inset Quotes erd
 \end_inset
 
@@ -327,9 +355,9 @@ the message pair
 We have 
 \begin_inset Formula 
 \begin{align*}
-\Pr(\epsilon) & =\mathbb{E}\left[\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\right]\\
-\Pr(\epsilon) & =\sum_{C}\Pr(C)\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\\
-\Pr(\epsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{m_{1},m_{2}}(C)
+\Pr(\varepsilon) & =\mathbb{E}\left[\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\right]\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{m_{1},m_{2}}(C)
 \end{align*}
 
 \end_inset
@@ -338,7 +366,7 @@ We have
 \end_layout
 
 \begin_layout Standard
-But we can use symmetry of encryption which implies that 
+But we can use the symmetry of our codebook which implies that 
 \begin_inset Formula $\lambda_{m_{1},m_{2}}$
 \end_inset
 
@@ -359,7 +387,7 @@ But we can use symmetry of encryption which implies that
 \end_layout
 
 \begin_layout Standard
-thus
+Thus:
 \begin_inset Formula 
 \begin{align*}
 \Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{1,1}(C)\\
@@ -379,7 +407,7 @@ thus
 \end_layout
 
 \begin_layout Standard
-we have
+We have
 \begin_inset Formula 
 \begin{align*}
 \lambda_{1,1} & =\Pr\left(\varepsilon_{1,(1,1)}\cup\varepsilon_{2,1}|t_{1,1}\right)\\
@@ -393,7 +421,7 @@ we have
 \end_layout
 
 \begin_layout Standard
-So
+So:
 \end_layout
 
 \begin_layout Standard
@@ -473,7 +501,7 @@ so
 
 \begin_layout Standard
 by join AEP properties: 
-\begin_inset Formula $\Pr(E_{1}^{c}|t_{1,1})\leq\epsilon$
+\begin_inset Formula $\Pr(E_{2,1}^{c}|t_{1,1})\leq\epsilon$
 \end_inset
 
  for 
@@ -516,7 +544,7 @@ reference "eq:1.a"
 \begin{align*}
 \E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+\sum_{i=2}^{2^{nR_{2}}}2^{-n(I(S,Y)-3\epsilon)}\\
 \E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+2^{nR_{2}}*2^{-n(I(S,Y)-3\epsilon)}\\
-\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+2^{-n(I(S,Y)-R_{2})-3n\epsilon}
+\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+2^{-n(I(S,Y)-R_{2}-3\epsilon)}
 \end{align*}
 
 \end_inset
@@ -613,7 +641,7 @@ Let's define
 \varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
 \varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{j,(1,j)}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,j)}\right)|t_{1,1}\\
 \Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\Pr\left(E_{j,(1,j)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y|S)-6\epsilon)}+\sum_{j=2}^{2^{nR_{2}}}???+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X,S;Y-3\epsilon)}
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)
 \end{align*}
 
 \end_inset
@@ -621,11 +649,157 @@ Let's define
 
 \end_layout
 
+\begin_layout Standard
+on this sum we can make the following observation
+\end_layout
+
+\begin_layout Itemize
+By join AEP properties: 
+\begin_inset Formula $\Pr(E_{1(1,1)}^{c}|t_{1,1})\leq\epsilon$
+\end_inset
+
+ for 
+\begin_inset Formula $n$
+\end_inset
+
+ large enough.
+ 
+\end_layout
+
+\begin_layout Itemize
+In 
+\begin_inset Formula $E_{1,(i,1)}=s^{n}(1),x^{n}(i,1),Y_{1}^{n}$
+\end_inset
+
+ we have that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $x^{n}(i,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{1}^{n}$
+\end_inset
+
+is compute from 
+\begin_inset Formula $s^{n}(1)$
+\end_inset
+
+ but independently from each other.
+ this is equivalent to the case covered in Ex 1.(c) and so we can use inequality
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.c"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+in 
+\begin_inset Formula $E_{1,(i,j)}=s^{n}(j),x^{n}(i,j),Y_{1}^{n}$
+\end_inset
+
+ we have 
+\begin_inset Formula $x^{n}(i,j)$
+\end_inset
+
+ compute from 
+\begin_inset Formula $s^{n}(j)$
+\end_inset
+
+ but 
+\begin_inset Formula $Y_{1}^{n}$
+\end_inset
+
+ is completely independent of both.
+ it's the case 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+covered in Ex 1.(b) and so we can use the inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.b bis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y|S)-6\epsilon)}+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X,S;Y-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X;Y|S)-6\epsilon)}+\sum_{j=1}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X,S;Y)-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{-n(I(X;Y|S)-R_{1}-6\epsilon)}+2^{-n(I(X,S;Y)-R_{1}-R_{2}-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and we can make this upper bound as small as we want the right chose of
+ 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and a 
+\begin_inset Formula $n$
+\end_inset
+
+ large enough if we have both:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}<I(X;Y|S)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}+R_{2}<I(X,S;Y)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset Note Note
+status collapsed
+
 \begin_layout Subsection
 (old d)
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \[
 \E\left[\lambda_{1,(1,1)}|t_{1,1}\right]=\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right)
@@ -636,7 +810,7 @@ Let's define
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let's define 
 \begin_inset Formula $E_{\text{1,(i,j)}}$
 \end_inset
@@ -674,7 +848,7 @@ Let's define
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 If we look at definition of join typicality, then we get 
 \begin_inset Formula $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}\Rightarrow\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
 \end_inset
@@ -696,7 +870,7 @@ If we look at definition of join typicality, then we get
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 where the last step came from union bound.
  Then we have: 
 \end_layout
@@ -749,7 +923,7 @@ Also From our codebook generation process,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{j=2}^{2^{nR_{2}}}2^{-n(I(S;Y_{1})-3\epsilon)}+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y_{1},S)-3\epsilon)}\\
@@ -762,7 +936,7 @@ Also From our codebook generation process,
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 And so we get: we can make 
 \begin_inset Formula $\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]$
 \end_inset
@@ -781,6 +955,11 @@ And so we get: we can make
 
  and 
 \begin_inset Formula $R_{1}<I(X;Y_{1},S)$
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -881,6 +1060,19 @@ p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1}
 \end_layout
 
 \begin_layout Standard
+because all element are positive (idicator function and size of set) then
+ 
+\begin_inset Formula $p(u_{1},u_{2})\geq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $(u_{1},u_{2})$
+\end_inset
+
+ and:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
 \sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\sum_{\forall u_{1}}\sum_{\forall u_{2}}\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
@@ -897,7 +1089,11 @@ p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1}
 \end_layout
 
 \begin_layout Standard
-if 
+So this function is indeed a probability function.
+\end_layout
+
+\begin_layout Standard
+then if 
 \begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
 \end_inset
 
@@ -919,48 +1115,79 @@ p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}*0=0
 \end_layout
 
 \begin_layout Standard
-this translate to this procsses: 
-\begin_inset Formula $u_{1}$
+Let's note that as we know have 
+\begin_inset Formula $\Pr\left(f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing\right)=0$
 \end_inset
 
- is choose at random uniformaly (so 
-\begin_inset Formula $p(u_{1})=\frac{1}{\left|\mathcal{U}_{1}\right|}$
+ we can rewrite 
+\begin_inset Formula $x(u_{1},u_{2})$
 \end_inset
 
-) and then in the set of preimages of 
-\begin_inset Formula $u_{1}$
+ simply as 
+\begin_inset Formula $x(u_{1},u_{2})=\text{some }a\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})$
 \end_inset
 
- via 
-\begin_inset Formula $f_{1}$
+ so now 
+\begin_inset Formula $\forall u_{1}\in\mathcal{U}_{1}\forall u_{2}\in\mathcal{U}_{2}\;:\,x(u_{1},u_{2})\in f_{1}^{-1}(u_{1})\wedge x(u_{1},u_{2})\in f_{2}^{-1}(u_{2})$
 \end_inset
 
- (so in 
-\begin_inset Formula $f_{1}^{-1}(u_{1})$
-\end_inset
 
- ) we select one element 
-\begin_inset Formula $w$
-\end_inset
+\end_layout
 
- at random uniform and take 
-\begin_inset Formula $u_{2}=f_{2}(w)$
-\end_inset
-
- so 
-\begin_inset Formula $w\in f_{1}^{-1}(u_{1})\land w\in f_{2}^{-1}(u_{2})$
-\end_inset
-
- so 
-\begin_inset Formula $w\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})$
-\end_inset
-
- which mean 
-\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
+\begin_layout Standard
+now we want 
+\begin_inset Formula $\Pr(Y_{1}=U_{1})$
 \end_inset
 
 .
- we now formalize this process.
+ As deterministicaly we have 
+\begin_inset Formula $y_{1}=f_{1}(x(u_{1},y_{2}))$
+\end_inset
+
+ then 
+\begin_inset Formula $\Pr(Y_{1}=U_{1})=\Pr(Y_{1}=f_{1}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{1}^{-1}(U_{1})\right)=1$
+\end_inset
+
+ from what we derived in the previous pragraph.
+ 
+\end_layout
+
+\begin_layout Standard
+Symetricaly: 
+\begin_inset Formula $\Pr(Y_{2}=U_{2})=\Pr(Y_{2}=f_{2}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{2}^{-1}(U_{2})\right)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(b).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Pr\left(f_{1}(z),f_{2}(z)\right)$
+\end_inset
+
+ is the sum of all 
+\begin_inset Formula $p_{z}(w)$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(w)=z$
+\end_inset
+
+ 
 \end_layout
 
 \end_body
