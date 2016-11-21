@@ -865,7 +865,7 @@ Ex 5
 \end_layout
 
 \begin_layout Standard
-we can define 
+we can fix 
 \begin_inset Formula $p(u_{1},u_{2})$
 \end_inset
 
@@ -874,6 +874,44 @@ we can define
 \[
 p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\sum_{\forall u_{1}}\sum_{\forall u_{2}}\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\sum_{\forall u_{2}}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\sum_{w\in f_{1}^{-1}(u_{1})}1\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\left|f_{1}^{-1}(u_{1})\right|\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}1\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
+\end_inset
+
+ so by definition 
+\begin_inset Formula $\forall w\in f_{1}^{-1}(u_{1})\,:\,f_{2}(w)\neq u_{2}$
+\end_inset
+
+ .in this case
+\begin_inset Formula 
+\begin{align*}
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}*0\\
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}*0=0
+\end{align*}
 
 \end_inset
 
@@ -923,42 +961,6 @@ this translate to this procsses:
 
 .
  we now formalize this process.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $p(u_{1},w,u_{2})=p(u_{1})p(w|u_{1})p(u_{2}|w)$
-\end_inset
-
- each element is define: 
-\begin_inset Formula $p(u_{1})=\frac{1}{\left|\mathcal{U}_{1}\right|}$
-\end_inset
-
- 
-\begin_inset Formula $p(w|u_{1})=\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}$
-\end_inset
-
- and 
-\begin_inset Formula $p(u_{2}|w)=\begin{cases}
-1 & f_{2}(w)=u_{2}\\
-0 & \text{otherwise}
-\end{cases}=\boldsymbol{1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-p(u_{1},u_{2}) & =\sum_{\forall w}p(u_{1},w,u_{2})\\
-p(u_{1},u_{2}) & =\sum_{\forall w}p(u_{1})p(w|u_{1})p(u_{2}|w)\\
-p(u_{1},u_{2}) & =p(u_{1})\sum_{w\in f_{1}^{-1}(u_{1})}p(w|u_{1})p(u_{2}|w)\\
-p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}
-\end{align*}
-
-\end_inset
-
-
 \end_layout
 
 \end_body
