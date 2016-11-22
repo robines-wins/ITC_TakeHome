@@ -796,6 +796,26 @@ Ex 3
 \end_layout
 
 \begin_layout Standard
+We define 
+\begin_inset Formula $h_{b}(a)$
+\end_inset
+
+ the binary entropy with probability 
+\begin_inset Formula $a$
+\end_inset
+
+ in other word: 
+\begin_inset Formula $H(X)$
+\end_inset
+
+ with 
+\begin_inset Formula $X\sim\text{Bernoulli}\left(a\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 first let's derive some result.
  here we assume that 
 \begin_inset Formula $p(x)$
@@ -916,7 +936,7 @@ R_{1} & <H(Y_{1}|S)-H(Y_{1}|X,S)\nonumber \\
 R_{1} & <H(Y_{1}|S)-H(Y_{1}|X,S)\nonumber \\
 R_{1} & <H(Y_{1}|S)-H(Y_{1}|X)\nonumber \\
 R_{1} & <H(Y_{1}|S)-h_{b}(q_{1})\nonumber \\
-R_{1} & <h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\label{eq:R1_b}
+R_{1} & <h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\label{eq:R1_q1}
 \end{align}
 
 \end_inset
@@ -932,6 +952,114 @@ R_{2} & <H(Y)-H(Y_{2}|S)\\
 R_{2} & <1-H(Y_{2}|S)\\
 R_{2} & <1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+also by subtracting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:R1_q1"
+
+\end_inset
+
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:R12 bound"
+
+\end_inset
+
+ we can get an other explicit bound for 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+R_{2}<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)\label{eq:R2_q1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So in general we have that the region of all possible rate 
+\begin_inset Formula $(R_{1},R_{2})$
+\end_inset
+
+ is the region such that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+R_{2}<\min\left\{ 1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right),1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\right\} 
+\end{cases}\label{eq:General ineq 3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now as 
+\begin_inset Formula $q_{1}<q_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\alpha(1-q_{2})+(1-\alpha)q_{2} & =\alpha-2\alpha q_{2}+q_{2}\\
+\alpha(1-q_{2})+(1-\alpha)q_{2} & =q_{2}(1-2\alpha)+\alpha\\
+\alpha(1-q_{2})+(1-\alpha)q_{2} & >q_{1}(1-2\alpha)+\alpha\\
+h_{p}(\alpha(1-q_{2})+(1-\alpha)q_{2}) & >h_{p}(\alpha(1-q_{1})+(1-\alpha)q_{1})\\
+1-h_{p}(\alpha(1-q_{2})+(1-\alpha)q_{2}) & <1-h_{p}(\alpha(1-q_{1})+(1-\alpha)q_{1})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So if 
+\begin_inset Formula $q_{1}<q_{2}$
+\end_inset
+
+ then from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:General ineq 3"
+
+\end_inset
+
+ we have the region of all possible rate 
+\begin_inset Formula $(R_{1},R_{2})$
+\end_inset
+
+ is define by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+0<R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+0<R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
+\end{cases}
+\]
 
 \end_inset
 
