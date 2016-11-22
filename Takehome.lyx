@@ -804,7 +804,8 @@ We define
 \begin_inset Formula $a$
 \end_inset
 
- in other word: 
+.
+ In other word: 
 \begin_inset Formula $H(X)$
 \end_inset
 
@@ -946,42 +947,12 @@ R_{1} & <h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\label{eq
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{align*}
-R_{2} & <I(S,Y_{2})\\
-R_{2} & <H(Y)-H(Y_{2}|S)\\
-R_{2} & <1-H(Y_{2}|S)\\
-R_{2} & <1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-also by subtracting 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:R1_q1"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:R12 bound"
-
-\end_inset
-
- we can get an other explicit bound for 
-\begin_inset Formula $R_{2}$
-\end_inset
-
-: 
-\begin_inset Formula 
-\begin{equation}
-R_{2}<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)\label{eq:R2_q1}
-\end{equation}
+\begin{align}
+R_{2} & <I(S,Y_{2})\nonumber \\
+R_{2} & <H(Y)-H(Y_{2}|S)\nonumber \\
+R_{2} & <1-H(Y_{2}|S)\nonumber \\
+R_{2} & <1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\label{eq:R2q2}
+\end{align}
 
 \end_inset
 
@@ -1000,8 +971,9 @@ So in general we have that the region of all possible rate
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
-R_{2}<\min\left\{ 1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right),1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\right\} 
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1}) & (i)\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right) & (ii)\\
+R_{1}+R_{2}<1-h_{b}(q_{1}) & (iii)
 \end{cases}\label{eq:General ineq 3}
 \end{equation}
 
@@ -1011,21 +983,171 @@ R_{2}<\min\left\{ 1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right),1-h_{b}\le
 \end_layout
 
 \begin_layout Standard
-Now as 
+but here has 
 \begin_inset Formula $q_{1}<q_{2}$
+\end_inset
+
+ then because 
+\begin_inset Formula $\alpha(1-q_{2})+(1-\alpha)q_{2}=q_{2}(1-2\alpha)+\alpha$
+\end_inset
+
+ we have 
+\begin_inset Formula $\alpha(1-q_{2})+(1-\alpha)q_{2}>\alpha(1-q_{1})+(1-\alpha)q_{1}$
+\end_inset
+
+.
+ So from 
+\begin_inset Formula $(ii)$
+\end_inset
+
+ 
+\begin_inset Formula $R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)$
+\end_inset
+
+ and this mean that with addition of 
+\begin_inset Formula $(i)$
+\end_inset
+
+ 
+\begin_inset Formula $R_{1}+R_{2}<1-h_{b}(q_{1})$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+so in this case 
+\begin_inset Formula $(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $(ii)$
+\end_inset
+
+ implies 
+\begin_inset Formula $(iii)$
+\end_inset
+
+ and so we can simplify our region definition:
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $q_{1}<q_{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(b)
+\end_layout
+
+\begin_layout Standard
+We can start back from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:General ineq 3"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+So we have that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\\
+R_{1}+R_{2}<1-h_{b}(q_{1})
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But now as 
+\begin_inset Formula $q_{2}<q_{1}$
+\end_inset
+
+ then it's not always true that 
+\begin_inset Formula $R_{2}<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $(ii)$
+\end_inset
+
+ doesn't always imply 
+\begin_inset Formula $(iii)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Now.
+ If we want to make 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ higher than 
+\begin_inset Formula $1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
+\end_inset
+
+ (so higer than it's the maximum bound in the previous case).
+ this will reduce the bound on 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+.
+ indeed, if 
+\begin_inset Formula $-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
+\end_inset
+
+ (so if we take 
+\begin_inset Formula $q_{2}<q_{3}<q_{1}$
+\end_inset
+
+) then in order to satisfy 
+\begin_inset Formula $R_{1}+R_{2}<1-h_{b}(q_{1})$
+\end_inset
+
+ we will need 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\alpha(1-q_{2})+(1-\alpha)q_{2} & =\alpha-2\alpha q_{2}+q_{2}\\
-\alpha(1-q_{2})+(1-\alpha)q_{2} & =q_{2}(1-2\alpha)+\alpha\\
-\alpha(1-q_{2})+(1-\alpha)q_{2} & >q_{1}(1-2\alpha)+\alpha\\
-h_{p}(\alpha(1-q_{2})+(1-\alpha)q_{2}) & >h_{p}(\alpha(1-q_{1})+(1-\alpha)q_{1})\\
-1-h_{p}(\alpha(1-q_{2})+(1-\alpha)q_{2}) & <1-h_{p}(\alpha(1-q_{1})+(1-\alpha)q_{1})
+R_{1}+1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right) & <1-h_{b}(q_{1})\\
+R_{1} & <h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)-h_{b}(q_{1})
 \end{align*}
 
 \end_inset
@@ -1034,36 +1156,66 @@ h_{p}(\alpha(1-q_{2})+(1-\alpha)q_{2}) & >h_{p}(\alpha(1-q_{1})+(1-\alpha)q_{1})
 \end_layout
 
 \begin_layout Standard
-So if 
-\begin_inset Formula $q_{1}<q_{2}$
+and as 
+\begin_inset Formula $q_{3}<q_{1}$
 \end_inset
 
- then from 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:General ineq 3"
-
+ this is a smaller bound than 
+\begin_inset Formula $(i)$
 \end_inset
 
- we have the region of all possible rate 
-\begin_inset Formula $(R_{1},R_{2})$
-\end_inset
-
- is define by 
+.
+ 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\begin{cases}
-0<R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
-0<R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
-\end{cases}
-\]
-
+But we still have 
+\begin_inset Formula $R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})$
 \end_inset
 
+ so taking 
+\begin_inset Formula $q_{2}<q_{1}$
+\end_inset
 
+ instead of 
+\begin_inset Formula $q_{1}<q_{2}$
+\end_inset
+
+ doesn't lead to any possibility of increasing the bound of 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ only the one of 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ at some cost one the one of 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+.
+ So making the channel 
+\begin_inset Formula $Y_{2}$
+\end_inset
+
+ better than 
+\begin_inset Formula $Y_{1}$
+\end_inset
+
+instead of the reverse can let us have a better rate 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ but it will imply to make the rate 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ to have a smaller maximum value than before, and will not help us in any
+ way to improve 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
