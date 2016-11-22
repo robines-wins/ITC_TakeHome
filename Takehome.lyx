@@ -795,6 +795,10 @@ and we can make this upper bound as small as we want the right chose of
 Ex 3
 \end_layout
 
+\begin_layout Subsection
+Definitions and result for later
+\end_layout
+
 \begin_layout Standard
 We define 
 \begin_inset Formula $h_{b}(a)$
@@ -817,8 +821,101 @@ We define
 \end_layout
 
 \begin_layout Standard
-first let's derive some result.
- here we assume that 
+also we assume that for every symetric channel with binary flip probability
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ then 
+\begin_inset Formula $a\leq0.5$
+\end_inset
+
+ because otherwise we just have to flip everybit at the output of the flip
+ and get a smaller flip probability 
+\begin_inset Formula $1-a\leq0.5$
+\end_inset
+
+ and so getting a better channel with 0 effort.
+\end_layout
+
+\begin_layout Standard
+we can also note that if we have 
+\begin_inset Formula $a\leq b\leq0.5$
+\end_inset
+
+ then 
+\begin_inset Formula $h_{b}(a)\leq h(b)$
+\end_inset
+
+ because binary entropy is an increasing function over 
+\begin_inset Formula $[0;0.5]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+if we define 
+\begin_inset Formula $f_{k}(a)=a(1-k)+(1-a)k$
+\end_inset
+
+ for a fixed 
+\begin_inset Formula $0\leq k\leq0.5$
+\end_inset
+
+ and 
+\begin_inset Formula $0\leq a\leq0.5$
+\end_inset
+
+ then 
+\begin_inset Formula $f_{k}(a)=a(1-2k)+k$
+\end_inset
+
+ and so 
+\begin_inset Formula $(1-2k)\geq0$
+\end_inset
+
+ and so 
+\begin_inset Formula $f_{k}$
+\end_inset
+
+ is an increasing function over 
+\begin_inset Formula $0\leq a\leq0.5$
+\end_inset
+
+.
+ that mean for all 
+\begin_inset Formula $0\leq a\leq b\leq0.5$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{k}(a)\leq f_{k}(b)\leq f_{k}(0.5)=0.5
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h_{b}(f_{k}(a))\leq h_{b}(f_{k}(b))\leq1\label{eq:ineq fh}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also, here we assume that 
 \begin_inset Formula $p(x)$
 \end_inset
 
@@ -867,7 +964,7 @@ first let's derive some result.
 \end_layout
 
 \begin_layout Standard
-Also as we have 
+Finally as we have 
 \begin_inset Formula $p(x,y,z)=p(s)p(x|s)p(y|x)$
 \end_inset
 
@@ -880,7 +977,7 @@ Also as we have
 \end_inset
 
  and so 
-\begin_inset Formula $H(Y|S,X)=H(Y|x)$
+\begin_inset Formula $H(Y|S,X)=H(Y|X)$
 \end_inset
 
 
@@ -987,16 +1084,14 @@ but here has
 \begin_inset Formula $q_{1}<q_{2}$
 \end_inset
 
- then because 
-\begin_inset Formula $\alpha(1-q_{2})+(1-\alpha)q_{2}=q_{2}(1-2\alpha)+\alpha$
+ from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ineq fh"
+
 \end_inset
 
- we have 
-\begin_inset Formula $\alpha(1-q_{2})+(1-\alpha)q_{2}>\alpha(1-q_{1})+(1-\alpha)q_{1}$
-\end_inset
-
-.
- So from 
+ and
 \begin_inset Formula $(ii)$
 \end_inset
 
@@ -1129,11 +1224,18 @@ Now.
 
 .
  indeed, if 
-\begin_inset Formula $-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
+\begin_inset Formula $1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
 \end_inset
 
  (so if we take 
 \begin_inset Formula $q_{2}<q_{3}<q_{1}$
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ineq fh"
+
 \end_inset
 
 ) then in order to satisfy 
@@ -1216,6 +1318,385 @@ instead of the reverse can let us have a better rate
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section
+Ex 4
+\end_layout
+
+\begin_layout Subsection
+(a)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr(\varepsilon) & =\mathbb{E}\left[\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\right]\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{m_{1},m_{2}}(C)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+But as we draw 
+\begin_inset Formula $u_{1}^{n}(m_{1},m_{t})$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{2}^{n}(m_{2},m_{s})$
+\end_inset
+
+ independently from independently from the index 
+\begin_inset Formula $m_{1},m_{2},m_{s},m_{t}$
+\end_inset
+
+.
+ so it's the same for 
+\begin_inset Formula $v_{i}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ so 
+\begin_inset Formula $\lambda_{m_{1,},m_{2}}$
+\end_inset
+
+ is independent of 
+\begin_inset Formula $m_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{2}$
+\end_inset
+
+ so 
+\begin_inset Formula $\lambda_{m_{1,},m_{2}}=\lambda_{1,1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}2^{nR_{1}}\frac{1}{2^{nR_{2}}}2^{nR_{2}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\Pr\left(\varepsilon|W_{1}=1,W_{2}=1\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(b)
+\end_layout
+
+\begin_layout Standard
+if there's no 
+\begin_inset Formula $(m_{t},m_{s})$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s})\right)$
+\end_inset
+
+ then the pair 
+\begin_inset Formula $\left(u_{1}^{n}(1,m_{t}^{*}),u_{2}^{n}(1,m_{s}^{*})\right)$
+\end_inset
+
+ receive will have one of those property:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u_{1}^{n}(1,m_{t})$
+\end_inset
+
+ is not typical in 
+\begin_inset Formula $U_{1}^{n}$
+\end_inset
+
+.
+ so 
+\begin_inset Formula $u_{1}^{n}(1,m_{t}),y_{1}^{n}$
+\end_inset
+
+ will not be typical for any 
+\begin_inset Formula $y_{1}^{n}$
+\end_inset
+
+ even if 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+was send.
+ This will lead to an error a decoding in receiver 1 when 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+ is transmitted
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u_{2}^{n}(1,m_{s})$
+\end_inset
+
+ is not typical in 
+\begin_inset Formula $U_{2}^{n}$
+\end_inset
+
+.
+ so 
+\begin_inset Formula $u_{2}^{n}(1,m_{s}),y_{2}^{n}$
+\end_inset
+
+ will not be typical for any 
+\begin_inset Formula $y_{2}^{n}$
+\end_inset
+
+ even if 
+\begin_inset Formula $m_{2}=1$
+\end_inset
+
+was send.
+ This will lead to an error a decoding in receiver 2 when 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+ is transmitted
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s})\right)$
+\end_inset
+
+ is not typical in 
+\begin_inset Formula $\left(U_{1}^{n},U_{2}^{n}\right)$
+\end_inset
+
+ this may not cause error at description.
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\varepsilon|t_{1,1}\cap\zeta_{0}\neq\varnothing$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+In the case where 
+\begin_inset Formula $(v_{1}^{n}(1),y_{1}^{n})$
+\end_inset
+
+ is not jointly typical then receiver 1 will ether declare an error (if
+ there's no other typical 
+\begin_inset Formula $(v_{1}^{n}(i),y_{1}^{n})$
+\end_inset
+
+) or output a wrong 
+\begin_inset Formula $m_{1}\neq1$
+\end_inset
+
+ so 
+\begin_inset Formula $\zeta_{11}|t_{1,1}\subseteq\varepsilon$
+\end_inset
+
+ when 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+ is transmitted
+\end_layout
+
+\begin_layout Standard
+In the case where there is 
+\begin_inset Formula $\left(u_{1}^{n}(m_{1}\neq1,m_{s}),y_{1}^{n}\right)$
+\end_inset
+
+ then there's a chance that receiver 1 decide to output 
+\begin_inset Formula $m_{1}\neq1$
+\end_inset
+
+ when 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+ is transmitted.
+ so 
+\begin_inset Formula $\varepsilon|t_{1,1}\cap\zeta_{12}\neq\varnothing$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+In the case where 
+\begin_inset Formula $(v_{2}^{n}(1),y_{2}^{n})$
+\end_inset
+
+ is not jointly typical then receiver 2 will ether declare an error (if
+ there's no other typical 
+\begin_inset Formula $(v_{2}^{n}(i),y_{2}^{n})$
+\end_inset
+
+) or output a wrong 
+\begin_inset Formula $m_{1}\neq1$
+\end_inset
+
+ so 
+\begin_inset Formula $\zeta_{11}|t_{1,1}\subseteq\varepsilon$
+\end_inset
+
+ when 
+\begin_inset Formula $m_{2}=1$
+\end_inset
+
+ is transmitted
+\end_layout
+
+\begin_layout Standard
+In the case where there is 
+\begin_inset Formula $\left(u_{2}^{n}(m_{2}\neq1,m_{s}),y_{2}^{n}\right)$
+\end_inset
+
+ then there's a chance that receiver 2 decide to output 
+\begin_inset Formula $m_{1}\neq1$
+\end_inset
+
+ when 
+\begin_inset Formula $m_{1}=1$
+\end_inset
+
+ is transmitted.
+ so 
+\begin_inset Formula $\varepsilon|t_{1,1}\cap\zeta_{12}\neq\varnothing$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+tif an error occur it's come from one of this event.
+ so 
+\begin_inset Formula $\varepsilon|t_{1,1}\subseteq\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so 
+\begin_inset Formula 
+\[
+\Pr(\varepsilon)=\Pr(\varepsilon|t_{1,1})\leq\Pr(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(c)
+\end_layout
+
+\begin_layout Standard
+first we have 
+\begin_inset Formula $\left(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1}\right)=\left(\zeta_{0}\cup\left(\zeta_{11}\cap\zeta_{0}^{c}\right)\cup\zeta_{12}\cup\left(\zeta_{21}\cap\zeta_{0}^{c}\right)\cup\zeta_{22}|t_{1,1}\right)$
+\end_inset
+
+ (because 
+\begin_inset Formula $\zeta_{1i}=\left(\zeta_{1i}\cap\zeta_{0}^{c}\right)\cup\left(\zeta_{1i}\cap\zeta_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\zeta_{1i}\cap\zeta_{0}\right)\subseteq\zeta_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so by using union bound:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr(\varepsilon) & \leq\Pr(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1})\\
+\Pr(\varepsilon) & \leq\Pr\left(\zeta_{0}\cup\left(\zeta_{11}\cap\zeta_{0}^{c}\right)\cup\zeta_{12}\cup\left(\zeta_{21}\cap\zeta_{0}^{c}\right)\cup\zeta_{22}|t_{1,1}\right)\\
+\Pr(\varepsilon) & \leq\Pr\left(\zeta_{0}|t_{1,1}\right)+\Pr\left(\zeta_{11}\cap\zeta_{0}^{c}|t_{1,1}\right)+\Pr\left(\zeta_{12}|t_{1,1}\right)+\Pr\left(\zeta_{21}\cap\zeta_{0}^{c}|t_{1,1}\right)+\Pr\left(\zeta_{22}|t_{1,1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(d)
+\end_layout
+
+\begin_layout Standard
+If we fix 
+\begin_inset Formula $m_{1}=m_{2}=1$
+\end_inset
+
+ then we can apply the lemma on the function 
+\begin_inset Formula $(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))$
+\end_inset
+
+ because all component of our system matches condition on the lemma.
+ and we have that 
+\begin_inset Formula $(1,m_{t})$
+\end_inset
+
+ has cardinality 
+\begin_inset Formula $2^{nR_{t}}$
+\end_inset
+
+ and 
+\begin_inset Formula $(1,m_{s})$
+\end_inset
+
+ has cardinality 
+\begin_inset Formula $2^{nR_{s}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+And so the lemma give us that as long has 
+\begin_inset Formula $R_{s}+R_{t}>I(U_{1};U_{2})$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{align*}
+\lim_{n\rightarrow\infty}\Pr\left(\exists(1,m_{s}),(1,m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\exists(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\forall(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\notin\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1-1=0\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}\right) & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
