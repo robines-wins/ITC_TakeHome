@@ -1695,8 +1695,74 @@ And so the lemma give us that as long has
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+(e)
+\end_layout
 
+\begin_layout Standard
+we have in our system that 
+\begin_inset Formula $\Pr\left(y_{1}^{n}|u_{1}^{n}\right)=\prod_{i=1}^{n}p_{Y_{1}|U_{1}}\left(\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+in our system we encode each symbol independently with 
+\begin_inset Formula $x^{n}(u_{1}^{n},u_{2}^{n})$
+\end_inset
+
+ and we assume that the channels are memoryless and treat each bit separately.
+ that's mean that each bit are treated separately along the process.
+ so if we define 
+\begin_inset Formula $y_{i}^{n}$
+\end_inset
+
+ as the message receive by 
+\begin_inset Formula $i$
+\end_inset
+
+ when sending 
+\begin_inset Formula $v_{i}^{n}(1)$
+\end_inset
+
+ we then get 
+\begin_inset Formula $\Pr\left(y_{i}^{n}|v_{1}^{n}(1),v_{2}^{n}(1)\right)=\prod_{j=1}^{n}\Pr\left(y_{i,j}|v_{1,j}v_{2,j}\right)$
+\end_inset
+
+ and as channel gives independent output given the input
+\end_layout
+
+\begin_layout Standard
+so 
+\begin_inset Formula $\Pr\left((y_{1}^{n})\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So when 
+\begin_inset Formula $v_{1}^{n}(1)$
+\end_inset
+
+ exist then we can apply the lemma on 
+\begin_inset Formula $p(v_{1}^{n}(1),y_{1}^{n})$
+\end_inset
+
+ and get 
+\begin_inset Formula 
+\[
+\Pr((v_{1}^{n}(1),y_{1}^{n})\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2}))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(f)
 \end_layout
 
 \begin_layout Section
@@ -1977,6 +2043,98 @@ Let's note that if
 \end_inset
 
  to have the same distribution
+\end_layout
+
+\begin_layout Section
+Ex 6
+\end_layout
+
+\begin_layout Subsection
+(a)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=\begin{cases}
+\log p_{0}+p_{1}\\
+\log p_{2}\\
+\log p_{3}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we have 
+\begin_inset Formula 
+\begin{align*}
+H(p_{0}+p_{1},p_{2},p_{3}) & =-(p_{0}+p_{1})\log\left(p_{0}+p_{1}\right)-p_{3}\log(p_{3})-p_{2}\log(p_{2})\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <-(p_{0}+p_{1})\log\left(p_{0}+p_{1}\right)-(p_{3}+p_{2})\log\left(\frac{p_{3}+p_{2}}{1+1}\right)\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <H(p_{0}'+p_{1}',p_{2}',p_{3}')
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where we use the log rule inequality between first and second line
+\end_layout
+
+\begin_layout Standard
+also in the same way
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+H(p_{0},p_{1},p_{2}+p_{3}) & =-(p_{2}+p_{3})\log\left(p_{2}+p_{3}\right)-p_{1}\log(p_{1})-p_{0}\log(p_{0})\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <-(p_{2}+p_{3})\log\left(p_{2}+p_{3}\right)-(p_{1}+p_{0})\log\left(\frac{p_{1}+p_{0}}{1+1}\right)\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}'+p_{3}')
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and finally
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+H(p_{0},p_{1},p_{2},p_{3}) & =-p_{1}\log(p_{1})-p_{0}\log(p_{0})-p_{2}\log(p_{2})-p_{3}\log(p_{3})\\
+H(p_{0},p_{1},p_{2},p_{3}) & <-(p_{1}+p_{0})\log\left(\frac{p_{1}+p_{0}}{1+1}\right)-(p_{3}+p_{2})\log\left(\frac{p_{3}+p_{2}}{1+1}\right)\\
+H(p_{0},p_{1},p_{2},p_{3}) & <-p_{0}\log\left(\frac{p_{1}+p_{0}}{2}\right)-p_{1}\log\left(\frac{p_{1}+p_{0}}{2}\right)-p_{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)-p_{3}\log\left(\frac{p_{3}+p_{2}}{2}\right)\\
+H(p_{0},p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}',p_{3}')
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+were we used the inegality twice
+\end_layout
+
+\begin_layout Standard
+so he have that all upper bound in 
+\begin_inset Formula $\mathcal{R}_{p'}$
+\end_inset
+
+ are bigger than upper bound in 
+\begin_inset Formula $\mathcal{R}_{p}$
+\end_inset
+
+ so 
+\begin_inset Formula $\mathcal{R}_{p}\subseteq\mathcal{R}_{p'}$
+\end_inset
+
+
 \end_layout
 
 \end_body
