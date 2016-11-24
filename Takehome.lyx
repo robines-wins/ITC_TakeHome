@@ -1782,10 +1782,10 @@ But we already have that if
 \begin_inset Formula 
 \begin{align*}
 \lim_{n\rightarrow\infty}\Pr\left[y_{1}^{n},y_{2}^{n},x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\text{is typical}|v_{1}^{n}(1),v_{2}^{n}(1)\text{\text{is typical},t_{1,1}}\right] & =1\\
-\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}\cap\zeta_{22}|t_{1,1}\right) & =0\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}\cap\zeta_{21}|t_{1,1}\right) & =0\\
 \begin{cases}
 \lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}|t_{1,1}\right) & =0\\
-\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{22}|t_{1,1}\right) & =0
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{21}|t_{1,1}\right) & =0
 \end{cases}
 \end{align*}
 
@@ -1799,19 +1799,7 @@ But we already have that if
 \end_layout
 
 \begin_layout Standard
-we have 
-\begin_inset Formula $\zeta_{12}$
-\end_inset
-
- the event 
-\begin_inset Formula $\left(u_{1}^{n}(m_{1},m_{t}),y_{1}^{n}|t_{1,1}\right)\in\mathcal{A}_{\epsilon}^{(n)}\left(U_{1}^{n}Y_{1}^{n}\right)$
-\end_inset
-
- for 
-\begin_inset Formula $m_{1}\ne1$
-\end_inset
-
- 
+From 
 \end_layout
 
 \begin_layout Standard
@@ -1820,12 +1808,193 @@ According to the system specification.
 \begin_inset Formula $p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})$
 \end_inset
 
- and so this mean that 
+ 
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula $u_{1}^{n}(1,m_{t})$
+\end_inset
+
+ is independent from all other 
+\begin_inset Formula $u_{1}^{n}(m_{1}',m_{2}')$
+\end_inset
+
+ with 
+\begin_inset Formula $(1,m_{t})\neq(m_{1}',m_{t}')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+and also 
+\begin_inset Formula $u_{2}^{n}(1,m_{ts})$
+\end_inset
+
+ is independent from all other 
+\begin_inset Formula $u_{2}^{n}(m_{2}',m_{s}')$
+\end_inset
+
+ with 
+\begin_inset Formula $(1,m_{s})\neq(m_{2}',m_{s}')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+and as 
+\begin_inset Formula 
+\[
+p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})
+\]
+
+\end_inset
+
+in word, as 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ is draw only depending of the given 
+\begin_inset Formula $u_{1}^{n},u_{2}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{1}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{2}^{n}$
+\end_inset
+
+ only from 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ then the message receive then also 
+\begin_inset Formula $y_{1}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{2}^{n}$
+\end_inset
+
+ receive for initial messages 
+\begin_inset Formula $\left((1,m_{t}),(1,m_{s})\right)$
+\end_inset
+
+ are independent than the ones receive from 
+\begin_inset Formula $(m_{1}',m_{t}')\neq(1,m_{t})$
+\end_inset
+
+ and 
+\begin_inset Formula $(m_{2}',m_{s}')\neq(1,m_{s})$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+In other word 
+\begin_inset Formula $y_{1}^{n}|t_{1,1}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{2}^{n}|t_{1,1}$
+\end_inset
+
+ are independent of 
+\begin_inset Formula $u_{1}^{n}(m_{1}',m_{t}')$
+\end_inset
+
+ for 
+\begin_inset Formula $(m_{1}',m_{t}')\neq(1,m_{t})$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{1}^{n}(m_{1}',m_{t}')$
+\end_inset
+
+ for 
+\begin_inset Formula $(m_{1}',m_{t}')\neq(1,m_{t})$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+So we can apply the cockoo's Egg lemma on 2 different case :
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(u_{1}^{n}(m_{1}',m_{t}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{1}^{n},Y^{n})\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(u_{2}^{n}(m_{2}',m_{S}'),y_{2}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{2}^{n},Y^{n})\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon-}
+\end{align*}
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\zeta_{12}|t_{1,1}\right) & =\sum_{\forall(m_{1}',m_{t}')\neq(1,m_{t})}\Pr\left(u_{1}^{n}(m_{1}',m_{t}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},Y)\right)\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <\sum_{\forall(m_{1}',m_{t}')\neq(1,m_{t})}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <\sum_{i=1}^{nR_{1}}\sum_{j=1}^{nR_{t}}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <2^{n(R_{1}+R_{t})}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-R_{1}-R_{t}-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And by the exact same process on the second inequality we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Pr\left(\zeta_{22}|t_{1,1}\right) & =\sum_{\forall(m_{2}',m_{s}')\neq(1,m_{s})}\Pr\left(u_{2}^{n}(m_{2}',m_{s}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{2}^{n},Y^{n})\right)\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <\sum_{\forall(m_{2}',m_{s}')\neq(1,m_{s})}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <\sum_{i=1}^{nR_{2}}\sum_{j=1}^{nR_{s}}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <2^{n(R_{2}+R_{s})}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <2^{-n(I(U_{2}^{n};Y_{2}^{n})-R_{2}-R_{s}-3\epsilon)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so we have that these 2 probability vanish for 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+ as long as we have 
+\begin_inset Formula $R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(g)
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \begin{cases}
-p(u_{1}^{n},x^{n},y_{1}^{n})=\sum_{\forall u_{2}^{n}\forall y_{2}^{n}}p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})=p(u_{1}^{n})p(x^{n}|u_{1}^{n})p(y_{1}^{n}|x^{n})\\
-p(u_{2}^{n},x^{n},y_{2}^{n})=\sum_{\forall u_{1}^{n}\forall y_{1}^{n}}p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})=p(u_{2}^{n})p(x^{n}|u_{2}^{n})p(y_{2}^{n}|x^{n})
+R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})\\
+R_{t}+R_{s}\geq I(U_{1}^{n};U_{2}^{n})
 \end{cases}
 \]
 
@@ -1834,44 +2003,24 @@ p(u_{2}^{n},x^{n},y_{2}^{n})=\sum_{\forall u_{1}^{n}\forall y_{1}^{n}}p(u_{1}^{n
 
 \end_layout
 
-\begin_layout Standard
-also we have that that 
-\begin_inset Formula $u_{1}(m_{1},m_{t})$
-\end_inset
-
- are IID uniformly distributed sequences 
+\begin_layout Subsection
+(h)
 \end_layout
 
 \begin_layout Standard
-We have that 
-\begin_inset Formula $u_{1}^{n}(1,m_{t}^{*})$
+we have 
+\begin_inset Formula 
+\[
+\begin{cases}
+R_{1}<I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}<I(U_{2}^{n};Y_{2}^{n})\\
+R_{2}<I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})+I(U_{1}^{n};U_{2}^{n})
+\end{cases}
+\]
+
 \end_inset
 
- is independent from all other 
-\begin_inset Formula $u_{1}^{n}(m_{1}',m_{2}')$
-\end_inset
 
- with 
-\begin_inset Formula $(1,m_{t}^{*})\neq(m_{1}',m_{2}')$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-and as our sequence 
-\begin_inset Formula $x^{n}$
-\end_inset
-
- and 
-\begin_inset Formula $y_{1}^{n}$
-\end_inset
-
- are compute only from 
-\end_layout
-
-\begin_layout Standard
-so the sequence receive by 
 \end_layout
 
 \begin_layout Section
