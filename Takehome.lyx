@@ -1687,7 +1687,7 @@ And so the lemma give us that as long has
 \lim_{n\rightarrow\infty}\Pr\left(\exists(1,m_{s}),(1,m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
 \lim_{n\rightarrow\infty}\Pr\left(\exists(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
 \lim_{n\rightarrow\infty}\Pr\left(\forall(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\notin\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1-1=0\\
-\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}\right) & =0
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}|t_{1,1}\right) & =0
 \end{align*}
 
 \end_inset
@@ -1700,61 +1700,94 @@ And so the lemma give us that as long has
 \end_layout
 
 \begin_layout Standard
-we have in our system that 
-\begin_inset Formula $\Pr\left(y_{1}^{n}|u_{1}^{n}\right)=\prod_{i=1}^{n}p_{Y_{1}|U_{1}}\left(\right)$
+We have in our system that 
+\begin_inset Formula $x_{i}^{n}(v_{1}^{n}(1),v_{2}^{n}(1))=x(v_{1,i}^{n}(1),v_{2,i}^{n}(1))$
 \end_inset
 
+ so in our distribution 
+\begin_inset Formula 
+\[
+p(x^{n}(v_{1}^{n}(1),v_{2}^{n}(1)),v_{1}^{n}(1),v_{2}^{n}(1))=p\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)\prod_{i=1}^{n}p\left(x\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)|v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)
+\]
+
+\end_inset
+
+ and so we can apply the conditional lemma: if 
+\begin_inset Formula $v_{1}^{n}(1),v_{2}^{n}(1)$
+\end_inset
+
+ is a typical sequence then 
+\begin_inset Formula $\left(x^{n},v_{1}^{n}(1),v_{2}^{n}(1)\right)$
+\end_inset
+
+ is a typical sequence with probability 
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also we know that (because we assume both channel are memoryless) we have
+ that 
+\begin_inset Formula 
+\[
+p\left(y_{1}^{n},y_{2}^{n}|x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\right)=\prod_{i=1}^{n}p\left(y_{1,i}^{n},y_{2,i}^{n}|x\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right),v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And so can also apply the lemma: if 
+\begin_inset Formula $x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)$
+\end_inset
+
+ is typical then 
+\begin_inset Formula $\left(y_{1}^{n},y_{2}^{n},x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\right)$
+\end_inset
+
+ is also typical with probability 
+\begin_inset Formula $1$
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Standard
-in our system we encode each symbol independently with 
-\begin_inset Formula $x^{n}(u_{1}^{n},u_{2}^{n})$
+But we already have that if 
+\begin_inset Formula $v_{1}^{n}(1),v_{2}^{n}(1)$
 \end_inset
 
- and we assume that the channels are memoryless and treat each bit separately.
- that's mean that each bit are treated separately along the process.
- so if we define 
-\begin_inset Formula $y_{i}^{n}$
+ is a typical sequence (so in the event 
+\begin_inset Formula $\zeta_{0}^{c}$
 \end_inset
 
- as the message receive by 
-\begin_inset Formula $i$
+) then 
+\begin_inset Formula $\left(x^{n},v_{1}^{n}(1),v_{2}^{n}(1)\right)$
 \end_inset
 
- when sending 
-\begin_inset Formula $v_{i}^{n}(1)$
+ is typical with probability one (as 
+\begin_inset Formula $x\rightarrow\infty$
 \end_inset
 
- we then get 
-\begin_inset Formula $\Pr\left(y_{i}^{n}|v_{1}^{n}(1),v_{2}^{n}(1)\right)=\prod_{j=1}^{n}\Pr\left(y_{i,j}|v_{1,j}v_{2,j}\right)$
-\end_inset
-
- and as channel gives independent output given the input
+) and so we can extend our result to the combination of these event and
+ have that
 \end_layout
 
 \begin_layout Standard
-so 
-\begin_inset Formula $\Pr\left((y_{1}^{n})\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-So when 
-\begin_inset Formula $v_{1}^{n}(1)$
-\end_inset
-
- exist then we can apply the lemma on 
-\begin_inset Formula $p(v_{1}^{n}(1),y_{1}^{n})$
-\end_inset
-
- and get 
 \begin_inset Formula 
-\[
-\Pr((v_{1}^{n}(1),y_{1}^{n})\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2}))
-\]
+\begin{align*}
+\lim_{n\rightarrow\infty}\Pr\left[y_{1}^{n},y_{2}^{n},x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\text{is typical}|v_{1}^{n}(1),v_{2}^{n}(1)\text{\text{is typical},t_{1,1}}\right] & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}\cap\zeta_{22}|t_{1,1}\right) & =0\\
+\begin{cases}
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}|t_{1,1}\right) & =0\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{22}|t_{1,1}\right) & =0
+\end{cases}
+\end{align*}
 
 \end_inset
 
@@ -1763,6 +1796,82 @@ So when
 
 \begin_layout Subsection
 (f)
+\end_layout
+
+\begin_layout Standard
+we have 
+\begin_inset Formula $\zeta_{12}$
+\end_inset
+
+ the event 
+\begin_inset Formula $\left(u_{1}^{n}(m_{1},m_{t}),y_{1}^{n}|t_{1,1}\right)\in\mathcal{A}_{\epsilon}^{(n)}\left(U_{1}^{n}Y_{1}^{n}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $m_{1}\ne1$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+According to the system specification.
+ We have our distribution 
+\begin_inset Formula $p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})$
+\end_inset
+
+ and so this mean that 
+\begin_inset Formula 
+\[
+\begin{cases}
+p(u_{1}^{n},x^{n},y_{1}^{n})=\sum_{\forall u_{2}^{n}\forall y_{2}^{n}}p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})=p(u_{1}^{n})p(x^{n}|u_{1}^{n})p(y_{1}^{n}|x^{n})\\
+p(u_{2}^{n},x^{n},y_{2}^{n})=\sum_{\forall u_{1}^{n}\forall y_{1}^{n}}p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})=p(u_{2}^{n})p(x^{n}|u_{2}^{n})p(y_{2}^{n}|x^{n})
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+also we have that that 
+\begin_inset Formula $u_{1}(m_{1},m_{t})$
+\end_inset
+
+ are IID uniformly distributed sequences 
+\end_layout
+
+\begin_layout Standard
+We have that 
+\begin_inset Formula $u_{1}^{n}(1,m_{t}^{*})$
+\end_inset
+
+ is independent from all other 
+\begin_inset Formula $u_{1}^{n}(m_{1}',m_{2}')$
+\end_inset
+
+ with 
+\begin_inset Formula $(1,m_{t}^{*})\neq(m_{1}',m_{2}')$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+and as our sequence 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{1}^{n}$
+\end_inset
+
+ are compute only from 
+\end_layout
+
+\begin_layout Standard
+so the sequence receive by 
 \end_layout
 
 \begin_layout Section
