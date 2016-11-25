@@ -1989,12 +1989,16 @@ and so we have that these 2 probability vanish for
 \end_layout
 
 \begin_layout Standard
+we have 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \begin{cases}
-R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})\\
-R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})\\
-R_{t}+R_{s}\geq I(U_{1}^{n};U_{2}^{n})
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n}) & (i)\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n}) & (ii)\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n}) & (iii)
 \end{cases}
 \]
 
@@ -2003,20 +2007,185 @@ R_{t}+R_{s}\geq I(U_{1}^{n};U_{2}^{n})
 
 \end_layout
 
+\begin_layout Standard
+if we take 
+\begin_inset Formula $R_{t}=I(U_{1}^{n};Y_{1}^{n})-R_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{s}=I(U_{2}^{n};Y_{2}^{n})-R_{2}$
+\end_inset
+
+ we get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+these are regular rate because from from 
+\begin_inset Formula $(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $(ii)$
+\end_inset
+
+ we have 
+\begin_inset Formula $0\leq I(U_{1}^{n};Y_{1}^{n})-R_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq I(U_{2}^{n};Y_{2}^{n})-R_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+also from 
+\begin_inset Formula $(iii)$
+\end_inset
+
+ we have 
+\begin_inset Formula $I(U_{1}^{n};U_{2}^{n})\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-R_{2}-R_{1}\Rightarrow R_{s}+R_{t}\geq I(U_{1}^{n};U_{2}^{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so if arbitrary 
+\begin_inset Formula $R_{1},R_{2}$
+\end_inset
+
+ satisfy 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:8"
+
+\end_inset
+
+ then we can always fix 
+\begin_inset Formula $R_{s},R_{t}$
+\end_inset
+
+ for which 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:7"
+
+\end_inset
+
+ is satisfied
+\end_layout
+
 \begin_layout Subsection
 (h)
 \end_layout
 
 \begin_layout Standard
-we have 
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n}) & (i)\\
+R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n}) & (ii)\\
+R_{t}+R_{s}\geq I(U_{1}^{n};U_{2}^{n}) & (iii)
+\end{cases}\label{eq:7}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then as 
+\begin_inset Formula $R_{t}\geq0$
+\end_inset
+
+ and 
+\begin_inset Formula $R_{s}\geq0$
+\end_inset
+
+, by losing precision on 
+\begin_inset Formula $(i)$
+\end_inset
+
+ and 
+\begin_inset Formula $(ii)$
+\end_inset
+
+ we get 
 \begin_inset Formula 
 \[
 \begin{cases}
-R_{1}<I(U_{1}^{n};Y_{1}^{n})\\
-R_{2}<I(U_{2}^{n};Y_{2}^{n})\\
-R_{2}<I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})+I(U_{1}^{n};U_{2}^{n})
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})
 \end{cases}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+also if multiply both side 
+\begin_inset Formula $(iii)$
+\end_inset
+
+ by 
+\begin_inset Formula $-1$
+\end_inset
+
+ and then add to it 
+\begin_inset Formula $(i)$
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{align*}
+R_{2}+R_{s}+R_{1}+R_{t}-R_{t}-R_{s} & \leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})\\
+R_{2}+R_{1} & \leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so we get that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:7"
+
+\end_inset
+
+ implies:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{cases}\label{eq:8}
+\end{equation}
 
 \end_inset
 
