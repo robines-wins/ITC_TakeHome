@@ -2564,5 +2564,579 @@ so he have that all upper bound in
 
 \end_layout
 
+\begin_layout Subsection
+(b)
+\end_layout
+
+\begin_layout Standard
+the variable 
+\begin_inset Formula $X$
+\end_inset
+
+ as 4 possible value, will will denote these probability by the vector 
+\begin_inset Formula $\vec{p}(x)=(p_{0}p_{1},p_{3},p_{4})$
+\end_inset
+
+ where 
+\begin_inset Formula $p_{i}=\Pr\left[X=i\right]$
+\end_inset
+
+ from these probabilities we can compute deterministacly (because 
+\begin_inset Formula $y_{i}(x)$
+\end_inset
+
+ are deterministic) the probability vector of 
+\begin_inset Formula $Y_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p(y_{1})=(p_{0}+p_{1},p_{2},p_{3})$
+\end_inset
+
+ and 
+\begin_inset Formula $p(y_{2})=(p_{0},p_{1},p_{2}+p_{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+also we can see that each value of 
+\begin_inset Formula $x$
+\end_inset
+
+ gives one unique and distinct pair 
+\begin_inset Formula $y_{1}(x),y_{2}(x)$
+\end_inset
+
+ and so we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+p_{Y_{1},Y_{2}}(0,0)=p_{X}(0)=p_{0}\\
+p_{Y_{1},Y_{2}}(0,1)=p_{X}(1)=p_{1}\\
+p_{Y_{1},Y_{2}}(1,2)=p_{X}(2)=p_{2}\\
+p_{Y_{1},Y_{2}}(2,2)=p_{X}(3)=p_{3}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ad so by applying it to the rate region from Ex5 we get that that the rate
+ region 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ is in fact the rate region 
+\begin_inset Formula $\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{R}_{\vec{p}(x)}$
+\end_inset
+
+ is the region define in (a) for a given vector 
+\begin_inset Formula $\vec{p}(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have that all distribution of the form 
+\begin_inset Formula $\vec{p}(x)=(p,p,0.5-p,0.5-p)$
+\end_inset
+
+ with 
+\begin_inset Formula $0\leq p\leq0,5$
+\end_inset
+
+ is a subset of all possible 
+\begin_inset Formula $\vec{p}(x)$
+\end_inset
+
+ so 
+\begin_inset Formula 
+\begin{equation}
+\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}\supseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,1-p,1-p)}\label{eq:5b1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now for every channel 
+\begin_inset Formula $\vec{p}(x)=(p_{0}p_{1},p_{3},p_{4})$
+\end_inset
+
+ if we set that 
+\begin_inset Formula $p'=\frac{p_{1}+p_{0}}{2}$
+\end_inset
+
+ and so 
+\begin_inset Formula $0,5-p'=\frac{p_{2}+p_{3}}{2}$
+\end_inset
+
+ we have from (a) that 
+\begin_inset Formula $\mathcal{R}_{(p_{0}p_{1},p_{3},p_{4})}\subseteq\mathcal{R}_{(p',p',0.5-p',0.5-p')}$
+\end_inset
+
+ and as 
+\begin_inset Formula $p_{0}+p_{1}\leq1\Rightarrow p'=\frac{p_{1}+p_{0}}{2}\leq0.5$
+\end_inset
+
+ then we have that 
+\begin_inset Formula $\mathcal{R}_{(p_{0}p_{1},p_{3},p_{4})}\subseteq\mathcal{R}_{(p,p,1-p,1-p)}$
+\end_inset
+
+ for a 
+\begin_inset Formula $p=p'\leq0.5$
+\end_inset
+
+.
+ so if we take the union on both side we get: 
+\begin_inset Formula 
+\begin{equation}
+\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}\subseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\label{eq:5b2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5b1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5b2"
+
+\end_inset
+
+ implies 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
+\mathcal{R} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(c)
+\end_layout
+
+\begin_layout Standard
+we take 
+\begin_inset Formula $p_{l}=\frac{1}{6}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{r}=\frac{1}{3}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Preliminary result: 
+\begin_inset Formula 
+\begin{align*}
+H(p,p,0.5-p,0.5-p) & =-2p\log(p)-2(0.5-p)\log(0,5-p)\\
+H(p,p,0.5-p,0.5-p) & =-2p\left(\log(2p)-\log2\right)-(1-2p)(\log(1-2p)-\log2)\\
+H(p,p,0.5-p,0.5-p) & =h_{b}(2p)+\log2
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+as we know that binary entropy is increasing for 
+\begin_inset Formula $x\leq0.5$
+\end_inset
+
+ , if we have 
+\begin_inset Formula $a\leq0.25$
+\end_inset
+
+ and 
+\begin_inset Formula $b\leq0.25$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(a,a,0.5-a,0.5-a)\leq H(b,b,0.5-b,0.5-b)\iff a\leq b\label{eq:4bineq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the same way:
+\begin_inset Formula 
+\begin{align*}
+H(p,p,1-2p) & =-2p\log(p)-(1-2p)\log(1-2p)\\
+H(p,p,1-2p) & =-2p\left(\log(2p)-\log2\right)-(1-2p)\log(1-2p)\\
+H(p,p,1-2p) & =h_{b}(2p)+2p\log2
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both 
+\begin_inset Formula $h_{b}(2p)$
+\end_inset
+
+ and 
+\begin_inset Formula $2p\log2$
+\end_inset
+
+ are increasing for 
+\begin_inset Formula $2p\leq0.5$
+\end_inset
+
+ so for 
+\begin_inset Formula $a\leq0.25$
+\end_inset
+
+ and 
+\begin_inset Formula $b\leq0.25$
+\end_inset
+
+ :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H(a,a,1-2p)\leq H(b,b,1-2b)\iff a\leq b\label{eq:4ineqR}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+(i)
+\end_layout
+
+\begin_layout Paragraph
+for every 
+\begin_inset Formula $p\leq\frac{1}{6}$
+\end_inset
+
+ we have that 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}\leq H(p+p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+, because entropy always reach is maximum at equiprobability for the same
+ number of possible value (here 
+\begin_inset Formula $3$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{2}\leq H(p,p,1-2p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})$
+\end_inset
+
+ because 
+\begin_inset Formula $p\leq\frac{1}{6}\leq0.25$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4ineqR"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}+R_{2}\leq H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+ from 
+\begin_inset Formula $p\leq\frac{1}{6}\leq0.25$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4bineq"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So all bound of 
+\begin_inset Formula $\mathcal{R}_{p}$
+\end_inset
+
+ are bounded by the bound of 
+\begin_inset Formula $\mathcal{R}_{\frac{1}{6}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so 
+\begin_inset Formula $\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\mathcal{R}_{\frac{1}{6}}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ for all 
+\begin_inset Formula $p<\frac{1}{6}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Now for every 
+\begin_inset Formula $p\ge\frac{1}{3}$
+\end_inset
+
+ we have:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}\leq H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+because
+\begin_inset Formula $H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p+p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+and 
+\begin_inset Formula $0.5-p\leq\frac{1}{6}\leq0.25$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4ineqR"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{2}\leq H(p,p,1-2p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+ because entropy always reach is maximum at equiprobability for the same
+ number of possible value (here 
+\begin_inset Formula $3$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}+R_{2}\leq H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+because 
+\begin_inset Formula $H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p,p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+and 
+\begin_inset Formula $0.5-p\leq\frac{1}{6}\leq0.25$
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:4bineq"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So all bound of 
+\begin_inset Formula $\mathcal{R}_{p}$
+\end_inset
+
+ are bounded by the bound of 
+\begin_inset Formula $\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ for all 
+\begin_inset Formula $p>\frac{1}{3}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+finally obviously for 
+\begin_inset Formula $\frac{1}{6}\leq p'\leq\frac{1}{3}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{R}_{(p',p',0.5-p',0.5-p')}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+conclusion:
+\end_layout
+
+\begin_layout Standard
+By combination of all the previous paragraph we get that 
+\begin_inset Formula $\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also as 
+\begin_inset Formula $\frac{1}{6}\leq p\leq\frac{1}{3}$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $0\leq p\leq0,5$
+\end_inset
+
+ then 
+\begin_inset Formula $\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\supseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula 
+\begin{align*}
+\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)} & =\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
+\mathcal{R} & =\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+(ii)
+\end_layout
+
+\begin_layout Standard
+we have:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+ , because it's in fact an equality 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $0\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+, by basic property of entropy and
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\log3+0\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+.
+ by explicit computation
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $s=(\log3,0)\in\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}$
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
