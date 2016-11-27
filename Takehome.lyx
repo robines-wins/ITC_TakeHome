@@ -170,10 +170,10 @@ We have
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n})p(s^{n},y^{n})\nonumber \\
-\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
-\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
-\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n})p(s^{n},y^{n})\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
 \end{align}
 
 \end_inset
@@ -312,10 +312,10 @@ Now we have
 so we get 
 \begin_inset Formula 
 \begin{align}
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\nonumber \\
  & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X|S)-2\epsilon)}2^{-n(H(Y|S)-2\epsilon)}2^{-n(H(S)-\epsilon)}\nonumber \\
  & \leq2^{n(H(X|S)+H(Y|S)-H(X,Y,S)-6\epsilon)}\nonumber \\
-\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S,X,Y}\right) & \leq2^{n(I(X;Y|S)-6\epsilon)}\label{eq:1.c}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{n(I(X;Y|S)-6\epsilon)}\label{eq:1.c}
 \end{align}
 
 \end_inset
@@ -630,7 +630,10 @@ Let's define
 \begin_inset Formula $E_{1,j}$
 \end_inset
 
- the event 
+ the event
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$
 \end_inset
 
@@ -640,7 +643,8 @@ Let's define
 \begin{align*}
 \varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
 \varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{j,(1,j)}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,j)}\right)|t_{1,1}\\
-\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\Pr\left(E_{j,(1,j)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)\\
+ & +\sum_{j=2}^{2^{nR_{2}}}\Pr\left(E_{j,(1,j)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)\\
 \Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)
 \end{align*}
 
@@ -821,7 +825,7 @@ We define
 \end_layout
 
 \begin_layout Standard
-also we assume that for every symetric channel with binary flip probability
+also we assume that for every symmetric channel with binary flip probability
  
 \begin_inset Formula $a$
 \end_inset
@@ -830,7 +834,7 @@ also we assume that for every symetric channel with binary flip probability
 \begin_inset Formula $a\leq0.5$
 \end_inset
 
- because otherwise we just have to flip everybit at the output of the flip
+ because otherwise we just have to flip every bit at the output of the flip
  and get a smaller flip probability 
 \begin_inset Formula $1-a\leq0.5$
 \end_inset
@@ -857,10 +861,14 @@ we can also note that if we have
 
 \begin_layout Standard
 if we define 
-\begin_inset Formula $f_{k}(a)=a(1-k)+(1-a)k$
+\begin_inset Formula 
+\[
+f_{k}(a)=a(1-k)+(1-a)k
+\]
+
 \end_inset
 
- for a fixed 
+for a fixed 
 \begin_inset Formula $0\leq k\leq0.5$
 \end_inset
 
@@ -868,7 +876,11 @@ if we define
 \begin_inset Formula $0\leq a\leq0.5$
 \end_inset
 
- then 
+ 
+\end_layout
+
+\begin_layout Standard
+then 
 \begin_inset Formula $f_{k}(a)=a(1-2k)+k$
 \end_inset
 
@@ -885,7 +897,11 @@ if we define
 \end_inset
 
 .
- that mean for all 
+ 
+\end_layout
+
+\begin_layout Standard
+That mean for all 
 \begin_inset Formula $0\leq a\leq b\leq0.5$
 \end_inset
 
@@ -915,7 +931,10 @@ h_{b}(f_{k}(a))\leq h_{b}(f_{k}(b))\leq1\label{eq:ineq fh}
 \end_layout
 
 \begin_layout Standard
-Also, here we assume that 
+Also, here we assume that:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $p(x)$
 \end_inset
 
@@ -927,7 +946,12 @@ Also, here we assume that
 \begin_inset Formula $p(s)$
 \end_inset
 
- is binary and uniform and so 
+ is binary and uniform.
+ 
+\end_layout
+
+\begin_layout Standard
+So 
 \begin_inset Formula $p_{x}(0)=p_{s}(0)p_{x|s}(0|0)+p_{s}(1)p_{x|s}(0|1)=\frac{1}{2}(1-\alpha)+\frac{1}{2}\alpha=\frac{1}{2}$
 \end_inset
 
@@ -936,15 +960,23 @@ Also, here we assume that
 \end_inset
 
  is also uniform.
- same thing for 
+\end_layout
+
+\begin_layout Standard
+it's identical for 
 \begin_inset Formula $p_{y1}(0)=p_{x}(0)p_{y_{1}|x}(0|0)+p_{x}(1)p_{y_{1}|x}(0|1)=\frac{1}{2}(1-q_{1})+\frac{1}{2}q_{1}=\frac{1}{2}$
 \end_inset
 
-: and so on for 
+.
+\end_layout
+
+\begin_layout Standard
+And so on for 
 \begin_inset Formula $p(y_{2})$
 \end_inset
 
- so we can sat that: 
+.
+ At the end we can sat that: 
 \begin_inset Formula $p(s)$
 \end_inset
 
@@ -960,7 +992,7 @@ Also, here we assume that
 \begin_inset Formula $p(y_{2})$
 \end_inset
 
- are binary uniform
+ are all binary uniform
 \end_layout
 
 \begin_layout Standard
@@ -968,11 +1000,15 @@ Finally as we have
 \begin_inset Formula $p(x,y,z)=p(s)p(x|s)p(y|x)$
 \end_inset
 
- then 
+.
+\end_layout
+
+\begin_layout Standard
+Then 
 \begin_inset Formula $S\rightarrow X\rightarrow Y$
 \end_inset
 
- is a markov chain, so 
+ is a Markov chain, so 
 \begin_inset Formula $p(y|s,x)=p(y|x)$
 \end_inset
 
@@ -1091,20 +1127,28 @@ reference "eq:ineq fh"
 
 \end_inset
 
- and
+ and 
 \begin_inset Formula $(ii)$
 \end_inset
 
  
-\begin_inset Formula $R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)$
+\begin_inset Formula 
+\[
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)
+\]
+
 \end_inset
 
- and this mean that with addition of 
+and this mean that with addition of 
 \begin_inset Formula $(i)$
 \end_inset
 
  
-\begin_inset Formula $R_{1}+R_{2}<1-h_{b}(q_{1})$
+\begin_inset Formula 
+\[
+R_{1}+R_{2}<1-h_{b}(q_{1})
+\]
+
 \end_inset
 
 
@@ -1223,8 +1267,15 @@ Now.
 \end_inset
 
 .
- indeed, if 
-\begin_inset Formula $1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
+\end_layout
+
+\begin_layout Standard
+Indeed, if 
+\begin_inset Formula 
+\[
+1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)
+\]
+
 \end_inset
 
  (so if we take 
@@ -1238,7 +1289,11 @@ reference "eq:ineq fh"
 
 \end_inset
 
-) then in order to satisfy 
+) 
+\end_layout
+
+\begin_layout Standard
+then in order to satisfy 
 \begin_inset Formula $R_{1}+R_{2}<1-h_{b}(q_{1})$
 \end_inset
 
@@ -1712,7 +1767,7 @@ p(x^{n}(v_{1}^{n}(1),v_{2}^{n}(1)),v_{1}^{n}(1),v_{2}^{n}(1))=p\left(v_{1,i}^{n}
 
 \end_inset
 
- and so we can apply the conditional lemma: if 
+And so we can apply the conditional lemma: if 
 \begin_inset Formula $v_{1}^{n}(1),v_{2}^{n}(1)$
 \end_inset
 
@@ -1770,7 +1825,7 @@ But we already have that if
 \begin_inset Formula $\left(x^{n},v_{1}^{n}(1),v_{2}^{n}(1)\right)$
 \end_inset
 
- is typical with probability one (as 
+ is Typical with probability one (as 
 \begin_inset Formula $x\rightarrow\infty$
 \end_inset
 
@@ -1828,7 +1883,7 @@ We have that
 \end_layout
 
 \begin_layout Standard
-and also 
+And also 
 \begin_inset Formula $u_{2}^{n}(1,m_{ts})$
 \end_inset
 
@@ -1844,7 +1899,7 @@ and also
 \end_layout
 
 \begin_layout Standard
-and as 
+And as 
 \begin_inset Formula 
 \[
 p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})
@@ -1852,7 +1907,7 @@ p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_
 
 \end_inset
 
-in word, as 
+In word: as 
 \begin_inset Formula $x^{n}$
 \end_inset
 
@@ -1872,7 +1927,7 @@ in word, as
 \begin_inset Formula $x^{n}$
 \end_inset
 
- then the message receive then also 
+ then the message receive then as the variable 
 \begin_inset Formula $y_{1}^{n}$
 \end_inset
 
@@ -1880,11 +1935,11 @@ in word, as
 \begin_inset Formula $y_{2}^{n}$
 \end_inset
 
- receive for initial messages 
+ which are the message receive for initial messages 
 \begin_inset Formula $\left((1,m_{t}),(1,m_{s})\right)$
 \end_inset
 
- are independent than the ones receive from 
+ are independent tof the message received receive from 
 \begin_inset Formula $(m_{1}',m_{t}')\neq(1,m_{t})$
 \end_inset
 
@@ -1925,7 +1980,7 @@ In other word
 \end_layout
 
 \begin_layout Standard
-So we can apply the cockoo's Egg lemma on 2 different case :
+So we can apply the cuckoo's Egg lemma on 2 different case :
 \begin_inset Formula 
 \begin{align*}
 \Pr\left(u_{1}^{n}(m_{1}',m_{t}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{1}^{n},Y^{n})\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
@@ -1969,7 +2024,7 @@ And by the exact same process on the second inequality we have
 \end_layout
 
 \begin_layout Standard
-and so we have that these 2 probability vanish for 
+So we have that these 2 probability vanish for 
 \begin_inset Formula $n\rightarrow\infty$
 \end_inset
 
@@ -2008,7 +2063,7 @@ R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^
 \end_layout
 
 \begin_layout Standard
-if we take 
+If we take 
 \begin_inset Formula $R_{t}=I(U_{1}^{n};Y_{1}^{n})-R_{1}$
 \end_inset
 
@@ -2034,7 +2089,7 @@ R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})
 \end_layout
 
 \begin_layout Standard
-these are regular rate because from from 
+These are regular rate because from from 
 \begin_inset Formula $(i)$
 \end_inset
 
@@ -2054,7 +2109,7 @@ these are regular rate because from from
 \end_layout
 
 \begin_layout Standard
-also from 
+Also from 
 \begin_inset Formula $(iii)$
 \end_inset
 
@@ -2142,7 +2197,7 @@ R_{2}\leq I(U_{2}^{n};Y_{2}^{n})
 \end_layout
 
 \begin_layout Standard
-also if multiply both side 
+Also by multiplying both side of 
 \begin_inset Formula $(iii)$
 \end_inset
 
@@ -2201,7 +2256,7 @@ Ex 5
 \end_layout
 
 \begin_layout Standard
-we can fix 
+We can fix 
 \begin_inset Formula $p(u_{1},u_{2})$
 \end_inset
 
@@ -2246,11 +2301,11 @@ because all element are positive (indicator function and size of set) then
 \end_layout
 
 \begin_layout Standard
-So this function is indeed a probability function.
+so this function is indeed a probability function.
 \end_layout
 
 \begin_layout Standard
-then if 
+Then if 
 \begin_inset Formula $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
 \end_inset
 
@@ -2292,7 +2347,7 @@ Let's note that as we know have
 \end_layout
 
 \begin_layout Standard
-now we want 
+Now we want 
 \begin_inset Formula $\Pr(Y_{1}=U_{1})$
 \end_inset
 
@@ -2302,7 +2357,11 @@ now we want
 \end_inset
 
  then 
-\begin_inset Formula $\Pr(Y_{1}=U_{1})=\Pr(Y_{1}=f_{1}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{1}^{-1}(U_{1})\right)=1$
+\begin_inset Formula 
+\[
+\Pr(Y_{1}=U_{1})=\Pr(Y_{1}=f_{1}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{1}^{-1}(U_{1})\right)=1
+\]
+
 \end_inset
 
  from what we derived in the previous paragraph.
@@ -2311,7 +2370,11 @@ now we want
 
 \begin_layout Standard
 Symmetrically: 
-\begin_inset Formula $\Pr(Y_{2}=U_{2})=\Pr(Y_{2}=f_{2}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{2}^{-1}(U_{2})\right)=1$
+\begin_inset Formula 
+\[
+\Pr(Y_{2}=U_{2})=\Pr(Y_{2}=f_{2}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{2}^{-1}(U_{2})\right)=1
+\]
+
 \end_inset
 
 
@@ -2350,7 +2413,12 @@ if it exist
 \begin_inset Formula $f_{2}(w)=a\wedge f_{2}(w)=b$
 \end_inset
 
- .so 
+.
+ 
+\end_layout
+
+\begin_layout Standard
+So 
 \begin_inset Formula $\Pr_{f_{1}(Z),f_{2}(Z)}\left(a,b\right)=0$
 \end_inset
 
@@ -2384,7 +2452,11 @@ case when
 
 \begin_layout Standard
 Now that we know that 
-\begin_inset Formula $\Pr_{U_{1},U_{2}}\left(a,b|f_{1}^{-1}(a)\cap f_{2}^{-1}(b)\neq\varnothing\right)=0$
+\begin_inset Formula 
+\[
+\Pr_{U_{1},U_{2}}\left(a,b|f_{1}^{-1}(a)\cap f_{2}^{-1}(b)\neq\varnothing\right)=0
+\]
+
 \end_inset
 
  then again we have 
@@ -2437,7 +2509,7 @@ So if we set
 \end_layout
 
 \begin_layout Standard
-and so we have in distribution 
+we get in distribution 
 \begin_inset Formula $\left(\left(f_{1}(Z),f_{2}(Z)\right)=\left(U_{1},U_{2}\right)=\left(f_{1}(x(U_{1},U_{2}),f_{2}(x(U_{1},U_{2})\right)\right)$
 \end_inset
 
@@ -2579,11 +2651,11 @@ H(p_{0}+p_{1},p_{2},p_{3}) & <H(p_{0}'+p_{1}',p_{2}',p_{3}')
 \end_layout
 
 \begin_layout Standard
-Where we use the log rule inequality between first and second line
+where we use the log rule inequality between first and second line.
 \end_layout
 
 \begin_layout Standard
-also in the same way
+Also in the same way
 \end_layout
 
 \begin_layout Standard
@@ -2619,11 +2691,11 @@ H(p_{0},p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}',p_{3}')
 \end_layout
 
 \begin_layout Standard
-were we used the inegality twice
+where we used the inequality twice.
 \end_layout
 
 \begin_layout Standard
-so he have that all upper bound in 
+So he have that all upper bound in 
 \begin_inset Formula $\mathcal{R}_{p'}$
 \end_inset
 
@@ -2643,7 +2715,7 @@ so he have that all upper bound in
 \end_layout
 
 \begin_layout Standard
-the variable 
+The variable 
 \begin_inset Formula $X$
 \end_inset
 
@@ -2682,7 +2754,7 @@ the variable
 \end_layout
 
 \begin_layout Standard
-also we can see that each value of 
+Also we can see that each value of 
 \begin_inset Formula $x$
 \end_inset
 
@@ -2710,21 +2782,21 @@ p_{Y_{1},Y_{2}}(2,2)=p_{X}(3)=p_{3}
 \end_layout
 
 \begin_layout Standard
-ad so by applying it to the rate region from Ex5 we get that that the rate
+and so by applying it to the rate region from Ex5 we get that that the rate
  region 
 \begin_inset Formula $\mathcal{R}$
 \end_inset
 
  is in fact the rate region 
-\begin_inset Formula $\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}$
+\begin_inset Formula $\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}}$
 \end_inset
 
  where 
-\begin_inset Formula $\mathcal{R}_{\vec{p}(x)}$
+\begin_inset Formula $\mathcal{R}_{\vec{p_{X}}}$
 \end_inset
 
  is the region define in (a) for a given vector 
-\begin_inset Formula $\vec{p}(x)$
+\begin_inset Formula $\vec{p_{X}}$
 \end_inset
 
 
@@ -2746,7 +2818,7 @@ We have that all distribution of the form
  so 
 \begin_inset Formula 
 \begin{equation}
-\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}\supseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,1-p,1-p)}\label{eq:5b1}
+\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}}\supseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,1-p,1-p)}\label{eq:5b1}
 \end{equation}
 
 \end_inset
@@ -2756,7 +2828,7 @@ We have that all distribution of the form
 
 \begin_layout Standard
 Now for every channel 
-\begin_inset Formula $\vec{p}(x)=(p_{0}p_{1},p_{3},p_{4})$
+\begin_inset Formula $\vec{p_{X}}=(p_{0}p_{1},p_{3},p_{4})$
 \end_inset
 
  if we set that 
@@ -2787,7 +2859,7 @@ Now for every channel
  so if we take the union on both side we get: 
 \begin_inset Formula 
 \begin{equation}
-\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)}\subseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\label{eq:5b2}
+\bigcup_{\forall\vec{p_{X}})}\mathcal{R}_{\vec{p_{X}}}\subseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\label{eq:5b2}
 \end{equation}
 
 \end_inset
@@ -2816,7 +2888,7 @@ reference "eq:5b2"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\bigcup_{\forall\vec{p}(x)}\mathcal{R}_{\vec{p}(x)} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
+\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
 \mathcal{R} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
 \end{align*}
 
@@ -2830,7 +2902,7 @@ reference "eq:5b2"
 \end_layout
 
 \begin_layout Standard
-we take 
+We take 
 \begin_inset Formula $p_{l}=\frac{1}{6}$
 \end_inset
 
@@ -3031,8 +3103,12 @@ Now for every
 \begin_inset Newline newline
 \end_inset
 
-because
-\begin_inset Formula $H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p+p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})$
+because 
+\begin_inset Formula 
+\[
+H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p+p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})
+\]
+
 \end_inset
 
  
@@ -3074,7 +3150,11 @@ reference "eq:4ineqR"
 \end_inset
 
 because 
-\begin_inset Formula $H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p,p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})$
+\begin_inset Formula 
+\[
+H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p,p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})
+\]
+
 \end_inset
 
  
@@ -3119,7 +3199,7 @@ So all bound of
 \end_layout
 
 \begin_layout Paragraph
-finally obviously for 
+Finally obviously for 
 \begin_inset Formula $\frac{1}{6}\leq p'\leq\frac{1}{3}$
 \end_inset
 
@@ -3134,7 +3214,7 @@ finally obviously for
 \end_layout
 
 \begin_layout Paragraph
-conclusion:
+Conclusion:
 \end_layout
 
 \begin_layout Standard
@@ -3146,7 +3226,7 @@ By combination of all the previous paragraph we get that
 \end_layout
 
 \begin_layout Standard
-Also as 
+also as 
 \begin_inset Formula $\frac{1}{6}\leq p\leq\frac{1}{3}$
 \end_inset
 
@@ -3183,11 +3263,11 @@ In all the following we assume that
 \begin_inset Formula $\epsilon<0$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-we know that the entropy of a random variable with 
+We know that the entropy of a random variable with 
 \begin_inset Formula $3$
 \end_inset
 
@@ -3195,11 +3275,11 @@ we know that the entropy of a random variable with
 \begin_inset Formula $\log3$
 \end_inset
 
- at equiprobability
+ at equiprobability.
 \end_layout
 
 \begin_layout Standard
-so 
+So 
 \begin_inset Formula $H(a,b,c)=\log3\iff a=b=c=\frac{1}{3}$
 \end_inset
 
@@ -3211,7 +3291,7 @@ so
 \end_layout
 
 \begin_layout Paragraph
-lower bound can't be larger than 
+Lower bound can't be larger than 
 \begin_inset Formula $\frac{1}{6}$
 \end_inset
 
@@ -3219,7 +3299,7 @@ lower bound can't be larger than
 \end_layout
 
 \begin_layout Standard
-we have:
+We have:
 \end_layout
 
 \begin_layout Itemize
@@ -3249,7 +3329,7 @@ we have:
 \end_layout
 
 \begin_layout Standard
-So 
+so 
 \begin_inset Formula 
 \[
 (\log3,0)\in\mathcal{R}_{\left(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3}\right)}
@@ -3261,7 +3341,7 @@ So
 \end_layout
 
 \begin_layout Standard
-now for every 
+Now for every 
 \begin_inset Formula $\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
 \end_inset
 
@@ -3301,7 +3381,7 @@ So
 \end_layout
 
 \begin_layout Paragraph
-upper bound can't be smaller than 
+Upper bound can't be smaller than 
 \begin_inset Formula $\frac{1}{3}$
 \end_inset
 
@@ -3383,7 +3463,7 @@ Now for every
 \end_layout
 
 \begin_layout Standard
-so our born wan't be any smaller than 
+So our born wan't be any smaller than 
 \begin_inset Formula $\frac{1}{6}$
 \end_inset
 
@@ -3455,7 +3535,7 @@ As
 \begin_inset Formula $H(p_{0},p_{1},p_{2})=H(p_{2},p_{0},p_{1})$
 \end_inset
 
- we also have
+ we also have 
 \begin_inset Formula $H(p_{0},p_{1},p_{2})<H\left(p_{2},0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2}\right)=H\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)$
 \end_inset
 
@@ -3593,6 +3673,14 @@ p_{1} & <\frac{1}{3}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+also we must have 
+\end_layout
+
+\begin_layout Standard
 For any point 
 \begin_inset Formula $(R_{1},R_{2}):$
 \end_inset
@@ -3601,7 +3689,7 @@ For any point
 \end_layout
 
 \begin_layout Standard
-if 
+If 
 \begin_inset Formula $R_{1}\leq h_{p}\left(0.5-\frac{p_{2}}{2}\right)$
 \end_inset
 
@@ -3617,7 +3705,7 @@ if
 \end_layout
 
 \begin_layout Standard
-if 
+If 
 \begin_inset Formula $R_{2}\leq h_{p}\left(0.5-\frac{p_{0}}{2}\right)$
 \end_inset
 
@@ -3657,15 +3745,15 @@ then
 \begin_inset Formula 
 \begin{align*}
 R_{1}+R_{2} & >h\left(0.5-\frac{p_{0}}{2}\right)+h_{p}\left(0.5-\frac{p_{2}}{2}\right)\\
-R_{1}+R_{2} & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
+R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
  & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
- & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
- & -\left(p_{0}\right)\log\left(p_{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
- & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(0.5\right)\log\left(0.5\right)\\
- & -\left(p_{0}\right)\log\left(p_{2}\right)-\left(0.5\right)\log\left(0.5\right)\\
- & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{2}\right)\log\left(p_{2}\right)+1\\
- & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{1}\right)\log\left(p_{1}\right)\\
- & >H(p_{0},p_{1},p_{2})
+ & +p_{0}\log\left(p_{0}\right)+\left(p_{2}\right)\log\left(p_{2}\right)+\left(p_{1}\right)\log\left(p_{1}\right)\\
+R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)+p_{2}\log\left(p_{2}\right)\\
+ & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)+p_{0}\log\left(p_{0}\right)\\
+ & -\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
+ & -\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)+\left(p_{1}\right)\log\left(p_{1}\right)\\
+\\
+ & >0
 \end{align*}
 
 \end_inset
@@ -3674,7 +3762,7 @@ R_{1}+R_{2} & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\ri
 \end_layout
 
 \begin_layout Standard
-Where we used the fatc that 
+Where we used the fact that 
 \begin_inset Formula $p_{2}>0.5-\frac{p_{0}}{2}$
 \end_inset
 
@@ -3686,7 +3774,7 @@ Where we used the fatc that
 \begin_inset Formula $-x\log x$
 \end_inset
 
- decreasing for 
+ increase for 
 \begin_inset Formula $x>0.5$
 \end_inset
 
@@ -3884,13 +3972,17 @@ This mean
 
 \end_layout
 
+\begin_layout Subsection
+(g)
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
 \mathcal{R} & =\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
 \mathcal{R} & =\bigcup_{0\leq p\leq1}\left(\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
-R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq H(p,1-p)\,R_{2}\leq H\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} \\
- & \cup\left\{ (R_{1},R_{2})\,:\,R_{1}\leq\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{2}\leq H(p,1-p)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} 
+R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq h_{b}(p)\,R_{2}\leq H\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} \\
+ & \cup\left\{ (R_{1},R_{2})\,:\,R_{1}\leq h_{b}\left(0.5-\frac{p}{2}\right)\,R_{2}\leq h_{b}(p)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} 
 \end{align*}
 
 \end_inset
@@ -3898,16 +3990,52 @@ R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq H(p,1-p)\,R_{2}\l
 
 \end_layout
 
-\begin_layout Subsection
-(g)
-\end_layout
-
 \begin_layout Standard
+we can chose ether 
 \begin_inset Formula $p_{l}=0$
 \end_inset
 
- and 
-\begin_inset Formula $p_{r}=$
+ or 
+\begin_inset Formula $p_{r}=\frac{1}{3}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{l}=\frac{1}{3}$
+\end_inset
+
+ or 
+\begin_inset Formula $p_{r}=1$
+\end_inset
+
+ depending on the definition of the bound.
+ let's take the second because it has the smallest interval.
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $p<\frac{1}{3}$
+\end_inset
+
+ then we' have that 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $R_{1}+R_{2}\leq H\left(\frac{1}{3},\frac{1}{3},\frac{1}{3}\right)$
+\end_inset
+
+ because entropy has always it's max at equiprobability
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p<\frac{1}{3}$
+\end_inset
+
+ then 
+\begin_inset Formula $h_{b}\left(p\right)<h_{b}(\frac{1}{3})$
+\end_inset
+
+ and and so we have that if 
+\begin_inset Formula $p\leq$
 \end_inset
 
 
