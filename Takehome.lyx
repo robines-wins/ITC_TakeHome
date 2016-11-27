@@ -347,7 +347,7 @@ the message pair
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 (a)
 \end_layout
 
@@ -2490,6 +2490,59 @@ R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+But for every 
+\begin_inset Formula $p(x)$
+\end_inset
+
+ we can find 
+\begin_inset Formula $p(u_{1},u_{2})$
+\end_inset
+
+ such that the distribution of 
+\begin_inset Formula $\left(U_{1}^{n},U_{2}^{n}\right)$
+\end_inset
+
+ match the one of 
+\begin_inset Formula $\left(Y_{1}^{n},Y_{2}^{n}\right)$
+\end_inset
+
+ and so we can reach 
+\begin_inset Formula 
+\begin{align}
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq I(Y_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(Y_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(Y_{1}^{n};Y_{1}^{n})+I(Y_{2}^{n};Y_{2}^{n})-I(Y_{1}^{n};Y_{2}^{n})
+\end{cases}\nonumber \\
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq H(Y_{1}^{n})\\
+R_{2}\leq H(Y_{2}^{n})\\
+R_{2}+R_{1}\leq H(Y_{1}^{n})+H(Y_{2}^{n})-\left(H(Y_{1}^{n})+H(Y_{2}^{n})-H(Y_{1}^{n};Y_{2}^{n})\right)
+\end{cases}\nonumber \\
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq H(Y_{1}^{n})\\
+R_{2}\leq H(Y_{2}^{n})\\
+R_{2}+R_{1}\leq H(Y_{1}^{n};Y_{2}^{n})
+\end{cases}\label{eq:9}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and so rate region 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:9"
+
+\end_inset
+
+ is reachable
 \end_layout
 
 \begin_layout Section
