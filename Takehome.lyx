@@ -2472,6 +2472,26 @@ Let's note that if
  to have the same distribution
 \end_layout
 
+\begin_layout Subsection
+(c)
+\end_layout
+
+\begin_layout Standard
+we have 
+\begin_inset Formula 
+\[
+\mathcal{R}=\bigcup_{p(x)}\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Ex 6
 \end_layout
@@ -2535,7 +2555,8 @@ and finally
 \begin{align*}
 H(p_{0},p_{1},p_{2},p_{3}) & =-p_{1}\log(p_{1})-p_{0}\log(p_{0})-p_{2}\log(p_{2})-p_{3}\log(p_{3})\\
 H(p_{0},p_{1},p_{2},p_{3}) & <-(p_{1}+p_{0})\log\left(\frac{p_{1}+p_{0}}{1+1}\right)-(p_{3}+p_{2})\log\left(\frac{p_{3}+p_{2}}{1+1}\right)\\
-H(p_{0},p_{1},p_{2},p_{3}) & <-p_{0}\log\left(\frac{p_{1}+p_{0}}{2}\right)-p_{1}\log\left(\frac{p_{1}+p_{0}}{2}\right)-p_{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)-p_{3}\log\left(\frac{p_{3}+p_{2}}{2}\right)\\
+H(p_{0},p_{1},p_{2},p_{3}) & <-\frac{p_{1}+p_{0}}{2}\log\left(\frac{p_{1}+p_{0}}{2}\right)-\frac{p_{1}+p_{0}}{2}\log\left(\frac{p_{1}+p_{0}}{2}\right)\\
+ & -\frac{p_{3}+p_{2}}{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)-\frac{p_{3}+p_{2}}{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)\\
 H(p_{0},p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}',p_{3}')
 \end{align*}
 
@@ -2574,7 +2595,7 @@ the variable
 \end_inset
 
  as 4 possible value, will will denote these probability by the vector 
-\begin_inset Formula $\vec{p}(x)=(p_{0}p_{1},p_{3},p_{4})$
+\begin_inset Formula $\vec{p_{X}}=(p_{0}p_{1},p_{3},p_{4})$
 \end_inset
 
  where 
@@ -2597,11 +2618,11 @@ the variable
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $p(y_{1})=(p_{0}+p_{1},p_{2},p_{3})$
+\begin_inset Formula $\vec{p}_{Y_{1}}=(p_{0}+p_{1},p_{2},p_{3})$
 \end_inset
 
  and 
-\begin_inset Formula $p(y_{2})=(p_{0},p_{1},p_{2}+p_{3})$
+\begin_inset Formula $\vec{p}_{Y_{2}}=(p_{0},p_{1},p_{2}+p_{3})$
 \end_inset
 
 
@@ -2658,7 +2679,7 @@ ad so by applying it to the rate region from Ex5 we get that that the rate
 
 \begin_layout Standard
 We have that all distribution of the form 
-\begin_inset Formula $\vec{p}(x)=(p,p,0.5-p,0.5-p)$
+\begin_inset Formula $\vec{p_{X}}=(p,p,0.5-p,0.5-p)$
 \end_inset
 
  with 
@@ -2666,7 +2687,7 @@ We have that all distribution of the form
 \end_inset
 
  is a subset of all possible 
-\begin_inset Formula $\vec{p}(x)$
+\begin_inset Formula $\vec{p_{X}}$
 \end_inset
 
  so 
@@ -3105,6 +3126,46 @@ So
 \end_layout
 
 \begin_layout Standard
+In all the following we assume that 
+\begin_inset Formula $\epsilon<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we know that the entropy of a random variable with 
+\begin_inset Formula $3$
+\end_inset
+
+ possible value only reach it's maximum 
+\begin_inset Formula $\log3$
+\end_inset
+
+ at equiprobability
+\end_layout
+
+\begin_layout Standard
+so 
+\begin_inset Formula $H(a,b,c)=\log3\iff a=b=c=\frac{1}{3}$
+\end_inset
+
+ otherwise 
+\begin_inset Formula $H(a,b,c)<\log3$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Paragraph
+lower bound can't be larger than 
+\begin_inset Formula $\frac{1}{6}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
 we have:
 \end_layout
 
@@ -3112,7 +3173,11 @@ we have:
 \begin_inset Formula $\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
 \end_inset
 
- , because it's in fact an equality 
+ , because 
+\begin_inset Formula $\log3=H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3132,7 +3197,664 @@ we have:
 
 \begin_layout Standard
 So 
-\begin_inset Formula $s=(\log3,0)\in\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}$
+\begin_inset Formula 
+\[
+(\log3,0)\in\mathcal{R}_{\left(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+now for every 
+\begin_inset Formula $\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{1}{6}+\epsilon\leq p$
+\end_inset
+
+ we have that 
+\begin_inset Formula $2p=\frac{1}{3}+2\epsilon\neq\frac{1}{3}$
+\end_inset
+
+ so the first bound we get 
+\begin_inset Formula $R_{1}\leq H(p+p,0.5-p,0.5-p)<\log3$
+\end_inset
+
+ so 
+\begin_inset Formula $(\log3,0)\notin\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ for any 
+\begin_inset Formula $\frac{1}{6}+\epsilon\leq p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula 
+\[
+(\log3,0)\notin\bigcup_{\frac{1}{6}+\epsilon\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+upper bound can't be smaller than 
+\begin_inset Formula $\frac{1}{3}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $0\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+, by basic property of entropy and
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+ , because 
+\begin_inset Formula $\log3=H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $0+\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$
+\end_inset
+
+.
+ by explicit computation
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula 
+\[
+(0,\log3)\in\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now for every 
+\begin_inset Formula $\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ with 
+\begin_inset Formula $p\leq\frac{1}{3}-\epsilon$
+\end_inset
+
+ we have that 
+\begin_inset Formula $p=\frac{1}{3}-\epsilon\neq\frac{1}{3}$
+\end_inset
+
+ so in the second bound we get 
+\begin_inset Formula $R_{2}\leq H(p,p,1-2p)<\log3$
+\end_inset
+
+ so 
+\begin_inset Formula $(0,\log3)\notin\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+\end_inset
+
+ for any 
+\begin_inset Formula $p\leq\frac{1}{3}-\epsilon$
+\end_inset
+
+ so:
+\begin_inset Formula 
+\[
+(0,\log3)\notin\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}-\epsilon}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+so our born wan't be any smaller than 
+\begin_inset Formula $\frac{1}{6}$
+\end_inset
+
+ or larger than 
+\begin_inset Formula $\frac{1}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(e)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H\left(p_{0},0.5-\frac{p_{0}}{2}+0.5-\frac{p_{0}}{2}\right)=H(p_{0},1-p_{0})=H(p_{0},p_{1}+p_{2})$
+\end_inset
+
+ so 
+\begin_inset Formula $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ have the same bounds on 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H\left(0.5-\frac{p_{2}}{2}+0.5-\frac{p_{2}}{2},p_{2}\right)=H(1-p_{2},p_{2})=H(p_{0},+p_{1},p_{2})$
+\end_inset
+
+ so 
+\begin_inset Formula $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ have the same bounds on 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+H(p_{0},p_{1},p_{2}) & =-p_{0}\log p_{0}-p_{1}\log p_{1}-p_{2}\log p_{2}\\
+H(p_{0},p_{1},p_{2}) & <-p_{0}\log p_{0}-\left(p_{1}+p_{2}\right)\log\left(\frac{p_{1}+p_{2}}{1+1}\right)\\
+H(p_{0},p_{1},p_{2}) & <-p_{0}\log p_{0}-2\left(\frac{1-p_{0}}{2}\right)\log\left(\frac{1-p_{0}}{2}\right)\\
+H(p_{0},p_{1},p_{2}) & <H\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)
+\end{align*}
+
+\end_inset
+
+Where the inequality come from the log-sum inequality.
+\begin_inset Newline newline
+\end_inset
+
+As 
+\begin_inset Formula $H(p_{0},p_{1},p_{2})=H(p_{2},p_{0},p_{1})$
+\end_inset
+
+ we also have
+\begin_inset Formula $H(p_{0},p_{1},p_{2})<H\left(p_{2},0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2}\right)=H\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+So the bound on 
+\begin_inset Formula $R_{1}+R_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ in smaller than the ones in 
+\begin_inset Formula $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H\left(p_{0}+0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)=h_{b}\left(0.5-\frac{p_{0}}{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $H(p_{0}+p_{1},p_{2})=h_{b}\left(p_{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H(0.5-\frac{p_{2}}{2},0.5+\frac{p_{2}}{2})=h_{b}\left(0.5-\frac{p_{2}}{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $H(p_{0},p_{1}+p_{2})=h_{b}\left(p_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $p_{2}\leq0.5-\frac{p_{0}}{2}$
+\end_inset
+
+ then we have as 
+\begin_inset Formula $p_{0}\leq1$
+\end_inset
+
+ 
+\begin_inset Formula $p_{2}\leq0.5-\frac{p_{0}}{2}\leq0.5$
+\end_inset
+
+ and so 
+\begin_inset Formula $h_{b}\left(p_{2}\right)\leq h_{p}\left(0.5-\frac{p_{0}}{2}\right)$
+\end_inset
+
+.
+ that's implies, with 1.
+ and 2.
+ that all bound in 
+\begin_inset Formula $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+\end_inset
+
+ are bigger ore equal than the ones of 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $p_{0}\leq0.5-\frac{p_{2}}{2}$
+\end_inset
+
+ then we have as 
+\begin_inset Formula $p_{2}\leq1$
+\end_inset
+
+ 
+\begin_inset Formula $p_{0}\leq0.5-\frac{p_{2}}{2}\leq0.5$
+\end_inset
+
+ and so 
+\begin_inset Formula $h_{b}\left(p_{0}\right)\leq h_{p}\left(0.5-\frac{p_{2}}{2}\right)$
+\end_inset
+
+.
+ that's implies, with 1.
+ and 2.
+ that all bound in 
+\begin_inset Formula $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+ are bigger ore equal than the ones of 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}\subseteq\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $p_{2}>0.5-\frac{p_{0}}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{0}>0.5-\frac{p_{2}}{2}$
+\end_inset
+
+ then by addtion we get 
+\begin_inset Formula 
+\begin{align*}
+p_{0}+p_{1} & >1-\frac{1}{2}(p_{0}+p_{1})\\
+1-p_{1} & >\frac{2}{3}\\
+p_{1} & <\frac{1}{3}
+\end{align*}
+
+\end_inset
+
+For any point 
+\begin_inset Formula $(R_{1},R_{2}):$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $R_{1}\leq h_{p}\left(0.5-\frac{p_{2}}{2}\right)$
+\end_inset
+
+ then as 
+\begin_inset Formula $R_{2}\leq H(p_{0}+p_{1},p_{2})$
+\end_inset
+
+ we have 
+\begin_inset Formula $(R_{1},R_{2})\in\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if 
+\begin_inset Formula $R_{2}\leq h_{p}\left(0.5-\frac{p_{0}}{2}\right)$
+\end_inset
+
+ then as 
+\begin_inset Formula $R_{1}\leq H(p_{0},p_{1}+p_{2})$
+\end_inset
+
+ we have 
+\begin_inset Formula $(R_{1},R_{2})\in\mathcal{R}_{\left(0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2},p_{0}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if ther's a point 
+\begin_inset Formula $(R_{1},R_{2})$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $h_{b}\left(p_{2}\right)\geq R_{1}>h\left(0.5-\frac{p_{0}}{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{b}\left(p_{0}\right)\geq R_{2}>h_{p}\left(0.5-\frac{p_{2}}{2}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+then 
+\begin_inset Formula 
+\begin{align*}
+R_{1}+R_{2} & >h\left(0.5-\frac{p_{0}}{2}\right)+h_{p}\left(0.5-\frac{p_{2}}{2}\right)\\
+R_{1}+R_{2} & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
+ & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
+ & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
+ & -\left(p_{0}\right)\log\left(p_{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
+ & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(0.5\right)\log\left(0.5\right)\\
+ & -\left(p_{0}\right)\log\left(p_{2}\right)-\left(0.5\right)\log\left(0.5\right)\\
+ & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{2}\right)\log\left(p_{2}\right)+1\\
+ & >-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{2}\right)\log\left(p_{2}\right)-\left(p_{1}\right)\log\left(p_{1}\right)\\
+ & >H(p_{0},p_{1},p_{2})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where we used the fatc that 
+\begin_inset Formula $p_{2}>0.5-\frac{p_{0}}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{0}>0.5-\frac{p_{2}}{2}$
+\end_inset
+
+ then that 
+\begin_inset Formula $-x\log x$
+\end_inset
+
+ decreasing for 
+\begin_inset Formula $x>0.5$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and finally that as 
+\begin_inset Formula $p_{1}<\frac{1}{3}$
+\end_inset
+
+ then 
+\begin_inset Formula $-\left(p_{1}\right)\log\left(p_{1}\right)<\left(\frac{1}{3}\right)\log\left(\frac{1}{3}\right)<1$
+\end_inset
+
+ because 
+\begin_inset Formula $-x\log x$
+\end_inset
+
+ increasing on 
+\begin_inset Formula $x\leq\frac{1}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So a such point can't exist in 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ so in all case 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ is either in 
+\begin_inset Formula $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+\end_inset
+
+ so in every for every 
+\begin_inset Formula $\mathcal{R}_{\vec{p}}$
+\end_inset
+
+ so 
+\begin_inset Formula 
+\[
+\mathcal{R}_{\vec{p_{X}}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}\cup\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(f) 
+\end_layout
+
+\begin_layout Standard
+form our information in the channel we can deterministically compute the
+ probability vector of 
+\begin_inset Formula $Y_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $(Y_{1},Y_{2})$
+\end_inset
+
+given 
+\begin_inset Formula $\vec{p}_{X}=(p_{0},p_{1},p_{2})$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\vec{p}_{Y_{1}}= & (p_{0},p_{1}+p_{2})\\
+\vec{p}_{Y_{2}}= & (p_{0}+p_{1},p_{2})\\
+\vec{p}_{Y_{1},Y_{2}}= & (p_{0},p_{1},p_{2})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $H(Y_{1})=H(p_{0},p_{1}+p_{2})$
+\end_inset
+
+, 
+\begin_inset Formula $H(Y_{2})=H(p_{0}+p_{1},p_{2})$
+\end_inset
+
+ and 
+\begin_inset Formula $H(Y_{1},Y_{2})=H(p_{0},p_{1},p_{2})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So by applying this to rate region from Ex 5 we get 
+\begin_inset Formula 
+\[
+\mathcal{R}=\bigcup_{\forall\vec{p}_{X}}\mathcal{R}_{\vec{p}_{X}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As all 
+\begin_inset Formula $(p,0.5-\frac{p}{2},0.5-\frac{p}{2})$
+\end_inset
+
+ for 
+\begin_inset Formula $0\leq p\leq1$
+\end_inset
+
+ and all 
+\begin_inset Formula $(0.5-\frac{p}{2},0.5-\frac{p}{2},p)$
+\end_inset
+
+ for 
+\begin_inset Formula $0\leq p\leq1$
+\end_inset
+
+ are a subset of all possible 
+\begin_inset Formula $\vec{p}_{X}$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\mathcal{R}\supseteq\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+but as for all possible 
+\begin_inset Formula $\vec{p}_{X}$
+\end_inset
+
+ We have (from (e)) that 
+\begin_inset Formula $\mathcal{R}_{\vec{p}_{X}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}\cup\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p\right)}$
+\end_inset
+
+ then every 
+\begin_inset Formula $\mathcal{R}_{\vec{p}_{X}}$
+\end_inset
+
+ is include in 
+\begin_inset Formula $\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)$
+\end_inset
+
+ and so the union of all possible 
+\begin_inset Formula $\mathcal{R}_{\vec{p}_{X}}$
+\end_inset
+
+ is included too
+\begin_inset Formula 
+\[
+\mathcal{R}\subseteq\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This mean 
+\begin_inset Formula 
+\[
+\mathcal{R}=\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\mathcal{R} & =\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
+\mathcal{R} & =\bigcup_{0\leq p\leq1}\left(\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
+R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq H(p,1-p)\,R_{2}\leq H\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} \\
+ & \cup\left\{ (R_{1},R_{2})\,:\,R_{1}\leq\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{2}\leq H(p,1-p)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+(g)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{l}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{r}=$
 \end_inset
 
 
