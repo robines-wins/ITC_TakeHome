@@ -3663,7 +3663,7 @@ If
 \begin_inset Formula $p_{0}>0.5-\frac{p_{2}}{2}$
 \end_inset
 
- then by addtion we get 
+ then by addition we get 
 \begin_inset Formula 
 \begin{align*}
 p_{0}+p_{1} & >1-\frac{1}{2}(p_{0}+p_{1})\\
@@ -3677,11 +3677,7 @@ p_{1} & <\frac{1}{3}
 \end_layout
 
 \begin_layout Standard
-also we must have 
-\end_layout
-
-\begin_layout Standard
-For any point 
+Also we must have for any point 
 \begin_inset Formula $(R_{1},R_{2}):$
 \end_inset
 
@@ -3721,7 +3717,7 @@ If
 \end_layout
 
 \begin_layout Standard
-if ther's a point 
+If there's a point 
 \begin_inset Formula $(R_{1},R_{2})$
 \end_inset
 
@@ -3748,12 +3744,7 @@ R_{1}+R_{2} & >h\left(0.5-\frac{p_{0}}{2}\right)+h_{p}\left(0.5-\frac{p_{2}}{2}\
 R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
  & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
  & +p_{0}\log\left(p_{0}\right)+\left(p_{2}\right)\log\left(p_{2}\right)+\left(p_{1}\right)\log\left(p_{1}\right)\\
-R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)+p_{2}\log\left(p_{2}\right)\\
- & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)+p_{0}\log\left(p_{0}\right)\\
- & -\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
- & -\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)+\left(p_{1}\right)\log\left(p_{1}\right)\\
-\\
- & >0
+R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >0
 \end{align*}
 
 \end_inset
@@ -3976,6 +3967,10 @@ This mean
 (g)
 \end_layout
 
+\begin_layout Subsubsection
+(i)
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
@@ -3991,7 +3986,7 @@ R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq h_{b}(p)\,R_{2}\l
 \end_layout
 
 \begin_layout Standard
-we can chose ether 
+We can chose ether 
 \begin_inset Formula $p_{l}=0$
 \end_inset
 
@@ -3999,43 +3994,100 @@ we can chose ether
 \begin_inset Formula $p_{r}=\frac{1}{3}$
 \end_inset
 
- or 
-\begin_inset Formula $p_{l}=\frac{1}{3}$
-\end_inset
-
- or 
-\begin_inset Formula $p_{r}=1$
-\end_inset
-
- depending on the definition of the bound.
- let's take the second because it has the smallest interval.
+ 
 \end_layout
 
 \begin_layout Standard
 if 
-\begin_inset Formula $p<\frac{1}{3}$
+\begin_inset Formula $p>\frac{1}{3}$
 \end_inset
 
- then we' have that 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $R_{1}+R_{2}\leq H\left(\frac{1}{3},\frac{1}{3},\frac{1}{3}\right)$
+ then we' have that every point of 
+\begin_inset Formula $\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}$
 \end_inset
 
- because entropy has always it's max at equiprobability
-\end_layout
+ is in 
+\begin_inset Formula $\mathcal{R}_{(0.5-\frac{0.5-p}{2},0.5-\frac{0.5-p}{2},0.5-p)}$
+\end_inset
 
-\begin_layout Itemize
-\begin_inset Formula $p<\frac{1}{3}$
+ because as 
+\begin_inset Formula $p>\frac{1}{3}$
 \end_inset
 
  then 
-\begin_inset Formula $h_{b}\left(p\right)<h_{b}(\frac{1}{3})$
+\begin_inset Formula $0.5-p>p$
 \end_inset
 
- and and so we have that if 
-\begin_inset Formula $p\leq$
+ and so 
+\begin_inset Formula $h_{b}(0.5-p)\geq h_{b}(p)$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{b}(p)\leq h_{b}(0.5-\frac{p}{2})$
+\end_inset
+
+ and also so all 3 bound are over bounded
+\end_layout
+
+\begin_layout Standard
+the reverse work: every point of 
+\begin_inset Formula $\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}$
+\end_inset
+
+ is in 
+\begin_inset Formula $\mathcal{R}_{(0.5-p,0.5-\frac{0.5-p}{2},0.5-\frac{0.5-p}{2})}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+(ii)
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\mathcal{R}=\bigcup_{0\leq p\leq\frac{1}{3}}\left(\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+if we take 
+\begin_inset Formula $0+\epsilon$
+\end_inset
+
+ instead of 
+\begin_inset Formula $0$
+\end_inset
+
+ we have that the point 
+\begin_inset Formula $(0,1)\in\mathcal{R}_{(0,0.5,0.5)}$
+\end_inset
+
+ isn't in our rate because because for all 
+\begin_inset Formula $0<p<\frac{1}{3}$
+\end_inset
+
+ 
+\begin_inset Formula $h_{b}(p)<1$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{b}(0.5-\frac{p}{2})<1$
+\end_inset
+
+ because 
+\begin_inset Formula $0.5-\frac{p}{2}<0$
+\end_inset
+
+ and so isn't in any 
+\begin_inset Formula $\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}$
+\end_inset
+
+ for 
+\begin_inset Formula $0<p\leq\frac{1}{3}$
 \end_inset
 
 
