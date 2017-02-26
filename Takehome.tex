@@ -1,0 +1,1156 @@
+%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{-2}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{babel}
+\begin{document}
+
+\title{Information theory and coding \\
+Take home exam}
+
+\author{Solignac Robin 235020}
+
+\maketitle
+\global\long\def\E{}
+
+\global\long\def\typ#1{\mathcal{A}_{\epsilon}^{(n)}\left(#1\right)}
+
+
+\section{Ex 1}
+
+\subsection{(a)}
+
+We have $\tilde{S^{n}}$ independent of $S^{n}$ and $Y^{n}$ but
+with the same marginal $p(s)$. so we have 
+\begin{align}
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & =\sum_{(s^{n},y^{n})\in\typ{S,Y}}p(s^{n})p(y^{n})\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq\sum_{(s^{n},y^{n})\in\typ{S,Y}}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{n(H(S,Y)+\epsilon)}2^{-n(H(S)-\epsilon)}2^{-n(H(Y)-\epsilon)}\nonumber \\
+\Pr\left((\tilde{S^{n}},Y^{n})\in\typ{S,Y}\right) & \leq2^{-n(I(S,Y)-3\epsilon)}\label{eq:1.a}
+\end{align}
+
+
+\subsection{(b)}
+
+We have $\tilde{X^{n}}$ independent from $(S^{n},X^{n},Y^{n})$ but
+it has the same marginal as $X^{n}$. so in particular $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x^{n}})p(s^{n},y^{n})$.
+And so
+
+\begin{align}
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n})p(s^{n},y^{n})\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X)-\epsilon)}2^{-n(H(Y,S)-\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X^{n}},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b}
+\end{align}
+
+Note for later: One thing we can note here is that this inequality
+does not depend on what the distribution of $p(s^{n},y^{n})$ and
+$p(x^{n})$ it just rely on the fact that $\tilde{X^{n}}$ is independent
+of $S^{n}$ and $Y^{n}$ and that it has the same marginal as $X^{n}$.
+But if we switch and take $\tilde{Y^{n}}$ independent of $S^{n},X^{n}$
+(with same marginal as $Y^{n}$) then we get 
+\begin{equation}
+\Pr\left((S^{n},X^{n},\tilde{Y^{n}})\in\typ{S,X,Y}\right)\leq2^{-n(I(X;Y,S)-3\epsilon)}\label{eq:1.b bis}
+\end{equation}
+
+
+\subsection{(c)}
+
+First, if $(s^{n},y^{n})\in\typ{S,Y}$ then we have $p(s^{n},y^{n})\leq2^{-n(H(S,Y)-\epsilon)}$
+and $p(s^{n})\geq2^{-n(H(S)+\epsilon)}$ so $p(y^{n}|s^{n})=\frac{p(s^{n},y^{n})}{p(s^{n})}\leq\frac{2^{-n(H(S,Y)-\epsilon)}}{2^{-n(H(S)+\epsilon)}}=2^{-n(H(Y|S)-2\epsilon)}$
+
+By replacing $Y$ by $X$ we get also $p(x^{n}|s^{n})\leq2^{-n(H(X|S)-2\epsilon)}$
+
+Now we have $\tilde{X^{n}}$ which is also compute from $S^{n}$ but
+independent from the computation of $X^{n}$ from $S^{n}$ and so
+independent of the generation of $Y^{n}$ form $S^{n}$ by the intermediate
+of $X^{n}$. This mean $p(s^{n},\tilde{x^{n}},y^{n})=p(\tilde{x^{n}},y^{n}|s)p(s)=p(\tilde{x^{n}}|s)p(y^{n}|s)p(s)$
+
+so we get 
+\begin{align}
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & =\sum_{(s^{n},x^{n},y^{n})\in\typ{S,X,Y}}p(x^{n}|s^{n})p(y^{n}|s^{n})p(s^{n})\nonumber \\
+ & \leq2^{n(H(X,Y,S)-\epsilon)}2^{-n(H(X|S)-2\epsilon)}2^{-n(H(Y|S)-2\epsilon)}2^{-n(H(S)-\epsilon)}\nonumber \\
+ & \leq2^{n(H(X|S)+H(Y|S)-H(X,Y,S)-6\epsilon)}\nonumber \\
+\Pr\left((S^{n},\tilde{X}^{n},Y^{n})\in\typ{S^{n},X^{n},Y^{n}}\right) & \leq2^{n(I(X;Y|S)-6\epsilon)}\label{eq:1.c}
+\end{align}
+
+
+\section{Ex 2}
+
+First let's define $t_{i,j}$ the event: ``the message pair $(m_{1}=i,m_{2}=j)$
+was transmitted''
+
+\subsection{(a)}
+
+We have 
+\begin{align*}
+\Pr(\varepsilon) & =\mathbb{E}\left[\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\right]\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{m_{1},m_{2}}(C)
+\end{align*}
+
+But we can use the symmetry of our codebook which implies that $\lambda_{m_{1},m_{2}}$
+does not depend of indexes $m_{1}$ and $m_{2}$. so $\lambda_{m_{1},m_{2}}=\lambda_{1,1}\,\forall m_{1},m_{2}$
+
+Thus:
+\begin{align*}
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}2^{nR_{1}}\frac{1}{2^{nR_{2}}}2^{nR_{2}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\Pr\left(\varepsilon|W_{1}=1,W_{2}=1\right)\\
+\Pr(\varepsilon) & =\mathbb{E}\left[\lambda_{1,1}(C)|W_{1}=1,W_{2}=2\right]
+\end{align*}
+
+
+\subsection{(b)}
+
+We have
+\begin{align*}
+\lambda_{1,1} & =\Pr\left(\varepsilon_{1,(1,1)}\cup\varepsilon_{2,1}|t_{1,1}\right)\\
+\lambda_{1,1} & \leq\Pr\left(\varepsilon_{1,(m_{1},m_{2})}|t_{1,1}\right)+\Pr\left(\varepsilon_{2,m_{2}}|t_{1,1}\right)\\
+\lambda_{1,1} & \leq\lambda_{1,(1,1)}+\lambda_{2,1}
+\end{align*}
+
+So:
+
+\begin{align*}
+\Pr(\varepsilon) & \leq\sum_{C}\Pr(C)\left(\lambda_{1,(1,1)}+\lambda_{2,1}\right)\\
+\Pr(\varepsilon) & \leq\E\left[\lambda_{1,(1,1)}\right]+\E\left[\lambda_{2,1}\right]\\
+\Pr(\varepsilon) & \leq\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]+\E\left[\lambda_{2,1}|t_{1,1}\right]
+\end{align*}
+
+
+\subsection{(c)}
+
+\[
+\E\left[\lambda_{2,1}|t_{1,1}\right]=\Pr\left(\varepsilon_{2,1}|t_{1,1}\right)
+\]
+
+Let's define $E_{2,i}$ the event $s^{n}(i)$ and $Y_{2}$ are jointly
+typical. where $Y_{2}^{n}$ is the message receive by $D_{1}$. so
+$E_{2,i}=(s^{n}(i),Y_{2}^{n})\in\mathcal{A}_{\epsilon}^{(n)}(S,Y_{2})$
+
+so $\varepsilon_{2,1}|t_{1,1}=E_{2,1}^{c}\cup\bigcup_{i=2}^{2^{nR_{2}}}E_{2,i}|t_{1,1}$
+and so by using the union bound
+\begin{align*}
+\E\left[\lambda_{2,1}|t_{1,1}\right] & =\Pr\left(E_{2,1}^{c}\cup\bigcup_{i=2}^{2^{nR_{2}}}E_{2,i}|t_{1,1}\right)\\
+\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\Pr(E_{2,1}^{c}|t_{1,1})+\sum_{i=2}^{2^{nR_{2}}}\Pr\left(E_{2,i}|t_{1,1}\right)
+\end{align*}
+
+by join AEP properties: $\Pr(E_{2,1}^{c}|t_{1,1})\leq\epsilon$ for
+$n$ large enough. 
+
+from our codebook generation process $s^{n}(i)$ is independent from
+$s^{n}(1)$ for $i\neq1$ and so we can apply inequality (\ref{eq:1.a}):
+and get $E_{i}\leq2^{-n(I(S,Y)-\epsilon)}$ 
+
+\begin{align*}
+\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+\sum_{i=2}^{2^{nR_{2}}}2^{-n(I(S,Y_{2})-3\epsilon)}\\
+\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+2^{nR_{2}}*2^{-n(I(S,Y_{2})-3\epsilon)}\\
+\E\left[\lambda_{2,1}|t_{1,1}\right] & \leq\epsilon+2^{-n(I(S,Y_{2})-R_{2}-3\epsilon)}
+\end{align*}
+
+and this upper bound converge to $\epsilon$ with $n\rightarrow\infty$
+if $R_{2}<I(S,Y_{2})$. 
+
+so with $R_{2}<I(S,Y_{2})$ we can make $\E\left[\lambda_{2,1}|t_{1,1}\right]$
+as small as we want by choosing $\epsilon$ and a $n$ large enough.
+It doesn't depend on $R_{1}$.
+
+\subsection{(d)}
+
+\[
+\E\left[\lambda_{1,(1,1)}|t_{1,1}\right]=\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right)
+\]
+
+Let's define $E_{\text{1,(i,j)}}$ the event $\left(s^{n}(j),x^{n}(i,j),Y_{1}^{n}\right)\in\typ{S,X,Y_{1}}$
+where $Y_{1}^{n}$ is the message receive from the channel by $D_{1}$,
+and $E_{1,j}$ the event
+
+$\left(s^{n}(j),Y_{1}^{n}\right)\in\typ{S,Y_{1}}$. That's mean: 
+\begin{align*}
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i,j\neq1,1}E_{1,(i,j)}|t_{1,1}\\
+\varepsilon_{1,(1,1)}|t_{1,1} & =E_{1(1,1)}^{c}\cup\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,1)}\cup\bigcup_{j=2}^{2^{nR_{2}}}E_{j,(1,j)}\cup\bigcup_{j=2}^{2^{nR_{2}}}\left(\bigcup_{i=2}^{2^{nR_{1}}}E_{1,(i,j)}\right)|t_{1,1}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)\\
+ & +\sum_{j=2}^{2^{nR_{2}}}\Pr\left(E_{j,(1,j)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\Pr\left(E_{1(1,1)}^{c}|t_{1,1}\right)+\sum_{i=2}^{2^{nR_{1}}}\Pr\left(E_{1,(i,1)}|t_{1,1}\right)+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}\Pr\left(E_{1,(i,j)}|t_{1,1}\right)
+\end{align*}
+
+on this sum we can make the following observation
+\begin{itemize}
+\item By join AEP properties: $\Pr(E_{1(1,1)}^{c}|t_{1,1})\leq\epsilon$
+for $n$ large enough. 
+\item In $E_{1,(i,1)}=s^{n}(1),x^{n}(i,1),Y_{1}^{n}$ we have that $x^{n}(i,1)$
+and $Y_{1}^{n}$is compute from $s^{n}(1)$ but independently from
+each other. this is equivalent to the case covered in Ex 1.(c) and
+so we can use inequality (\ref{eq:1.c})
+\item in $E_{1,(i,j)}=s^{n}(j),x^{n}(i,j),Y_{1}^{n}$ we have $x^{n}(i,j)$
+compute from $s^{n}(j)$ but $Y_{1}^{n}$ is completely independent
+of both. it's the case covered in Ex 1.(b) and so we can use the inequality
+(\ref{eq:1.b bis})
+\end{itemize}
+So we have 
+
+\begin{align*}
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=2}^{2^{nR_{1}}}2^{-n(I(X;Y_{1}|S)-6\epsilon)}+\sum_{j=2}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X,S;Y_{1}-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X;Y_{1}|S)-6\epsilon)}+\sum_{j=1}^{2^{nR_{2}}}\sum_{i=1}^{2^{nR_{1}}}2^{-n(I(X,S;Y_{1})-3\epsilon)}\\
+\Pr\left(\varepsilon_{1,(1,1)}|t_{1,1}\right) & \leq\epsilon+2^{-n(I(X;Y_{1}|S)-R_{1}-6\epsilon)}+2^{-n(I(X,S;Y_{1})-R_{1}-R_{2}-3\epsilon)}
+\end{align*}
+
+and we can make this upper bound as small as we want the right chose
+of $\epsilon$ and a $n$ large enough if we have both:
+\begin{itemize}
+\item $R_{1}<I(X;Y_{1}|S)$
+\item $R_{1}+R_{2}<I(X,S;Y_{1})$
+\end{itemize}
+
+\section{Ex 3}
+
+\subsection{Definitions and result for later}
+
+We define $h_{b}(a)$ the binary entropy with probability $a$. In
+other word: $H(X)$ with $X\sim\text{Bernoulli}\left(a\right)$
+
+also we assume that for every symmetric channel with binary flip probability
+$a$ then $a\leq0.5$ because otherwise we just have to flip every
+bit at the output of the flip and get a smaller flip probability $1-a\leq0.5$
+and so getting a better channel with 0 effort.
+
+we can also note that if we have $a\leq b\leq0.5$ then $h_{b}(a)\leq h(b)$
+because binary entropy is an increasing function over $[0;0.5]$. 
+
+if we define 
+\[
+f_{k}(a)=a(1-k)+(1-a)k
+\]
+for a fixed $0\leq k\leq0.5$ and $0\leq a\leq0.5$ 
+
+then $f_{k}(a)=a(1-2k)+k$ and so $(1-2k)\geq0$ and so $f_{k}$ is
+an increasing function over $0\leq a\leq0.5$. 
+
+That mean for all $0\leq a\leq b\leq0.5$:
+
+\[
+f_{k}(a)\leq f_{k}(b)\leq f_{k}(0.5)=0.5
+\]
+
+\begin{equation}
+h_{b}(f_{k}(a))\leq h_{b}(f_{k}(b))\leq1\label{eq:ineq fh}
+\end{equation}
+
+Also, here we assume that:
+
+$p(x)$ and $p(y)$ are binary, and $p(s)$ is binary and uniform. 
+
+So $p_{x}(0)=p_{s}(0)p_{x|s}(0|0)+p_{s}(1)p_{x|s}(0|1)=\frac{1}{2}(1-\alpha)+\frac{1}{2}\alpha=\frac{1}{2}$
+so marginal $p(x)$ is also uniform.
+
+it's identical for $p_{y1}(0)=p_{x}(0)p_{y_{1}|x}(0|0)+p_{x}(1)p_{y_{1}|x}(0|1)=\frac{1}{2}(1-q_{1})+\frac{1}{2}q_{1}=\frac{1}{2}$.
+
+And so on for $p(y_{2})$. At the end we can sat that: $p(s)$,$p(x)$,$p(y_{1})$,$p(y_{2})$
+are all binary uniform
+
+Finally as we have $p(x,y,z)=p(s)p(x|s)p(y|x)$.
+
+Then $S\rightarrow X\rightarrow Y$ is a Markov chain, so $p(y|s,x)=p(y|x)$
+and so $H(Y|S,X)=H(Y|X)$
+
+\subsection{(a)}
+
+Recap:
+\begin{itemize}
+\item $R_{1}+R_{2}<I(X,S;Y_{1})$
+\item $R_{1}<I(X;Y_{1}|S)$
+\item $R_{2}<I(S,Y_{2})$
+\end{itemize}
+\begin{align}
+R_{1}+R_{2} & <I(X,S;Y_{1})\nonumber \\
+R_{1}+R_{2} & <H(Y)-H(Y_{1}|S,X)\nonumber \\
+R_{1}+R_{2} & <H(Y)-H(Y_{1}|X)\nonumber \\
+R_{1}+R_{2} & <1-h_{b}(q_{1})\label{eq:R12 bound}
+\end{align}
+
+\begin{align}
+R_{1} & <I(X;Y_{1}|S)\nonumber \\
+R_{1} & <H(Y_{1}|S)-H(Y_{1}|X,S)\nonumber \\
+R_{1} & <H(Y_{1}|S)-H(Y_{1}|X,S)\nonumber \\
+R_{1} & <H(Y_{1}|S)-H(Y_{1}|X)\nonumber \\
+R_{1} & <H(Y_{1}|S)-h_{b}(q_{1})\nonumber \\
+R_{1} & <h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\label{eq:R1_q1}
+\end{align}
+
+\begin{align}
+R_{2} & <I(S,Y_{2})\nonumber \\
+R_{2} & <H(Y)-H(Y_{2}|S)\nonumber \\
+R_{2} & <1-H(Y_{2}|S)\nonumber \\
+R_{2} & <1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\label{eq:R2q2}
+\end{align}
+
+So in general we have that the region of all possible rate $(R_{1},R_{2})$
+is the region such that 
+
+\begin{equation}
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1}) & (i)\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right) & (ii)\\
+R_{1}+R_{2}<1-h_{b}(q_{1}) & (iii)
+\end{cases}\label{eq:General ineq 3}
+\end{equation}
+
+but here has $q_{1}<q_{2}$ from (\ref{eq:ineq fh}) and $(ii)$ 
+\[
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)
+\]
+and this mean that with addition of $(i)$ 
+\[
+R_{1}+R_{2}<1-h_{b}(q_{1})
+\]
+
+so in this case $(i)$ and $(ii)$ implies $(iii)$ and so we can
+simplify our region definition:
+
+if $q_{1}<q_{2}$:
+
+\[
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)
+\end{cases}
+\]
+
+
+\subsection{(b)}
+
+We can start back from (\ref{eq:General ineq 3}). 
+
+So we have that 
+
+\[
+\begin{cases}
+R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})\\
+R_{2}<1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)\\
+R_{1}+R_{2}<1-h_{b}(q_{1})
+\end{cases}
+\]
+
+But now as $q_{2}<q_{1}$ then it's not always true that $R_{2}<1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q1\right)$
+and so $(i)$ and $(ii)$ doesn't always imply $(iii)$ 
+
+Now. If we want to make $R_{2}$ higher than $1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)$
+(so higer than it's the maximum bound in the previous case). this
+will reduce the bound on $R_{1}$.
+
+Indeed, if 
+\[
+1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{2}\right)>R_{2}=1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)>1-h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)
+\]
+ (so if we take $q_{2}<q_{3}<q_{1}$ (\ref{eq:ineq fh})) 
+
+then in order to satisfy $R_{1}+R_{2}<1-h_{b}(q_{1})$ we will need 
+
+\begin{align*}
+R_{1}+1-h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right) & <1-h_{b}(q_{1})\\
+R_{1} & <h_{b}\left(\alpha(1-q_{2})+(1-\alpha)q_{3}\right)-h_{b}(q_{1})
+\end{align*}
+
+and as $q_{3}<q_{1}$ this is a smaller bound than $(i)$. 
+
+But we still have $R_{1}<h_{b}\left(\alpha(1-q_{1})+(1-\alpha)q_{1}\right)-h_{b}(q_{1})$
+so taking $q_{2}<q_{1}$ instead of $q_{1}<q_{2}$ doesn't lead to
+any possibility of increasing the bound of $R_{1}$ only the one of
+$R_{2}$ at some cost one the one of $R_{1}$. So making the channel
+$Y_{2}$ better than $Y_{1}$instead of the reverse can let us have
+a better rate $R_{2}$ but it will imply to make the rate $R_{1}$
+to have a smaller maximum value than before, and will not help us
+in any way to improve $R_{1}$.
+
+\section{Ex 4}
+
+\subsection{(a)}
+
+\begin{align*}
+\Pr(\varepsilon) & =\mathbb{E}\left[\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\right]\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\lambda_{m_{1},m_{2}}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{m_{1},m_{2}}(C)
+\end{align*}
+
+But as we draw $u_{1}^{n}(m_{1},m_{t})$ and $u_{2}^{n}(m_{2},m_{s})$
+independently from independently from the index $m_{1},m_{2},m_{s},m_{t}$.
+so it's the same for $v_{i}^{n}$ and $x^{n}$ so $\lambda_{m_{1,},m_{2}}$
+is independent of $m_{1}$ and $m_{2}$ so $\lambda_{m_{1,},m_{2}}=\lambda_{1,1}$
+
+\begin{align*}
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}\sum_{m_{1}=1}^{2^{nR_{1}}}\frac{1}{2^{nR_{2}}}\sum_{m_{2}=1}^{2^{nR_{2}}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\frac{1}{2^{nR_{1}}}2^{nR_{1}}\frac{1}{2^{nR_{2}}}2^{nR_{2}}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\sum_{C}\Pr(C)\lambda_{1,1}(C)\\
+\Pr(\varepsilon) & =\Pr\left(\varepsilon|W_{1}=1,W_{2}=1\right)
+\end{align*}
+
+
+\subsection{(b)}
+
+if there's no $(m_{t},m_{s})$ such that $\left(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s})\right)$
+then the pair $\left(u_{1}^{n}(1,m_{t}^{*}),u_{2}^{n}(1,m_{s}^{*})\right)$
+receive will have one of those property:
+\begin{itemize}
+\item $u_{1}^{n}(1,m_{t})$ is not typical in $U_{1}^{n}$. so $u_{1}^{n}(1,m_{t}),y_{1}^{n}$
+will not be typical for any $y_{1}^{n}$ even if $m_{1}=1$was send.
+This will lead to an error a decoding in receiver 1 when $m_{1}=1$
+is transmitted
+\item $u_{2}^{n}(1,m_{s})$ is not typical in $U_{2}^{n}$. so $u_{2}^{n}(1,m_{s}),y_{2}^{n}$
+will not be typical for any $y_{2}^{n}$ even if $m_{2}=1$was send.
+This will lead to an error a decoding in receiver 2 when $m_{1}=1$
+is transmitted
+\item $\left(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s})\right)$ is not typical
+in $\left(U_{1}^{n},U_{2}^{n}\right)$ this may not cause error at
+description.
+\end{itemize}
+So $\varepsilon|t_{1,1}\cap\zeta_{0}\neq\varnothing$ 
+
+In the case where $(v_{1}^{n}(1),y_{1}^{n})$ is not jointly typical
+then receiver 1 will ether declare an error (if there's no other typical
+$(v_{1}^{n}(i),y_{1}^{n})$) or output a wrong $m_{1}\neq1$ so $\zeta_{11}|t_{1,1}\subseteq\varepsilon$
+when $m_{1}=1$ is transmitted
+
+In the case where there is $\left(u_{1}^{n}(m_{1}\neq1,m_{s}),y_{1}^{n}\right)$
+then there's a chance that receiver 1 decide to output $m_{1}\neq1$
+when $m_{1}=1$ is transmitted. so $\varepsilon|t_{1,1}\cap\zeta_{12}\neq\varnothing$ 
+
+In the case where $(v_{2}^{n}(1),y_{2}^{n})$ is not jointly typical
+then receiver 2 will ether declare an error (if there's no other typical
+$(v_{2}^{n}(i),y_{2}^{n})$) or output a wrong $m_{1}\neq1$ so $\zeta_{11}|t_{1,1}\subseteq\varepsilon$
+when $m_{2}=1$ is transmitted
+
+In the case where there is $\left(u_{2}^{n}(m_{2}\neq1,m_{s}),y_{2}^{n}\right)$
+then there's a chance that receiver 2 decide to output $m_{1}\neq1$
+when $m_{1}=1$ is transmitted. so $\varepsilon|t_{1,1}\cap\zeta_{12}\neq\varnothing$ 
+
+tif an error occur it's come from one of this event. so $\varepsilon|t_{1,1}\subseteq\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}$
+
+so 
+\[
+\Pr(\varepsilon)=\Pr(\varepsilon|t_{1,1})\leq\Pr(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1})
+\]
+
+
+\subsection{(c)}
+
+first we have $\left(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1}\right)=\left(\zeta_{0}\cup\left(\zeta_{11}\cap\zeta_{0}^{c}\right)\cup\zeta_{12}\cup\left(\zeta_{21}\cap\zeta_{0}^{c}\right)\cup\zeta_{22}|t_{1,1}\right)$
+(because $\zeta_{1i}=\left(\zeta_{1i}\cap\zeta_{0}^{c}\right)\cup\left(\zeta_{1i}\cap\zeta_{0}\right)$
+and $\left(\zeta_{1i}\cap\zeta_{0}\right)\subseteq\zeta_{0}$
+
+and so by using union bound:
+
+\begin{align*}
+\Pr(\varepsilon) & \leq\Pr(\zeta_{0}\cup\zeta_{11}\cup\zeta_{12}\cup\zeta_{21}\cup\zeta_{22}|t_{1,1})\\
+\Pr(\varepsilon) & \leq\Pr\left(\zeta_{0}\cup\left(\zeta_{11}\cap\zeta_{0}^{c}\right)\cup\zeta_{12}\cup\left(\zeta_{21}\cap\zeta_{0}^{c}\right)\cup\zeta_{22}|t_{1,1}\right)\\
+\Pr(\varepsilon) & \leq\Pr\left(\zeta_{0}|t_{1,1}\right)+\Pr\left(\zeta_{11}\cap\zeta_{0}^{c}|t_{1,1}\right)+\Pr\left(\zeta_{12}|t_{1,1}\right)+\Pr\left(\zeta_{21}\cap\zeta_{0}^{c}|t_{1,1}\right)+\Pr\left(\zeta_{22}|t_{1,1}\right)
+\end{align*}
+
+
+\subsection{(d)}
+
+If we fix $m_{1}=m_{2}=1$ then we can apply the lemma on the function
+$(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))$ because all component of
+our system matches condition on the lemma. and we have that $(1,m_{t})$
+has cardinality $2^{nR_{t}}$ and $(1,m_{s})$ has cardinality $2^{nR_{s}}$.
+
+And so the lemma give us that as long has $R_{s}+R_{t}>I(U_{1};U_{2})$
+then 
+\begin{align*}
+\lim_{n\rightarrow\infty}\Pr\left(\exists(1,m_{s}),(1,m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\exists(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\forall(m_{s},m_{t})\,:\,(u_{1}^{n}(1,m_{t}),u_{2}^{n}(1,m_{s}))\notin\mathcal{A}_{\epsilon}^{(n)}(U_{1},U_{2})\right) & =1-1=0\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}|t_{1,1}\right) & =0
+\end{align*}
+
+
+\subsection{(e)}
+
+We have in our system that $x_{i}^{n}(v_{1}^{n}(1),v_{2}^{n}(1))=x(v_{1,i}^{n}(1),v_{2,i}^{n}(1))$
+so in our distribution 
+\[
+p(x^{n}(v_{1}^{n}(1),v_{2}^{n}(1)),v_{1}^{n}(1),v_{2}^{n}(1))=p\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)\prod_{i=1}^{n}p\left(x\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)|v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)
+\]
+And so we can apply the conditional lemma: if $v_{1}^{n}(1),v_{2}^{n}(1)$
+is a typical sequence then $\left(x^{n},v_{1}^{n}(1),v_{2}^{n}(1)\right)$
+is a typical sequence with probability $1$
+
+Also we know that (because we assume both channel are memoryless)
+we have that 
+\[
+p\left(y_{1}^{n},y_{2}^{n}|x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\right)=\prod_{i=1}^{n}p\left(y_{1,i}^{n},y_{2,i}^{n}|x\left(v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right),v_{1,i}^{n}(1),v_{2,i}^{n}(1)\right)
+\]
+
+And so can also apply the lemma: if $x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)$
+is typical then $\left(y_{1}^{n},y_{2}^{n},x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\right)$
+is also typical with probability $1$. 
+
+But we already have that if $v_{1}^{n}(1),v_{2}^{n}(1)$ is a typical
+sequence (so in the event $\zeta_{0}^{c}$) then $\left(x^{n},v_{1}^{n}(1),v_{2}^{n}(1)\right)$
+is Typical with probability one (as $x\rightarrow\infty$) and so
+we can extend our result to the combination of these event and have
+that
+
+\begin{align*}
+\lim_{n\rightarrow\infty}\Pr\left[y_{1}^{n},y_{2}^{n},x\left(v_{1}^{n}(1),v_{i}^{n}(1)\right),v_{1}^{n}(1),v_{2}^{n}(1)\text{is typical}|v_{1}^{n}(1),v_{2}^{n}(1)\text{\text{is typical},\ensuremath{t_{1,1}}}\right] & =1\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}\cap\zeta_{21}|t_{1,1}\right) & =0\\
+\begin{cases}
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{11}|t_{1,1}\right) & =0\\
+\lim_{n\rightarrow\infty}\Pr\left(\zeta_{0}^{c}\cap\zeta_{21}|t_{1,1}\right) & =0
+\end{cases}
+\end{align*}
+
+
+\subsection{(f)}
+
+From 
+
+According to the system specification. We have our distribution $p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})$ 
+
+We have that $u_{1}^{n}(1,m_{t})$ is independent from all other $u_{1}^{n}(m_{1}',m_{2}')$
+with $(1,m_{t})\neq(m_{1}',m_{t}')$ 
+
+And also $u_{2}^{n}(1,m_{ts})$ is independent from all other $u_{2}^{n}(m_{2}',m_{s}')$
+with $(1,m_{s})\neq(m_{2}',m_{s}')$ 
+
+And as 
+\[
+p(u_{1}^{n}u_{2}^{n},x^{n},y_{1}^{n},y_{2}^{n})=p(u_{1}^{n},u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n},y_{2}^{n}|x^{n})=p(u_{1}^{n})p(u_{2}^{n})p(x^{n}|u_{1}^{n},u_{2}^{n})p(y_{1}^{n}|x^{n})p(y_{2}^{n}|x^{n})
+\]
+In word: as $x^{n}$ is draw only depending of the given $u_{1}^{n},u_{2}^{n}$
+and $y_{1}^{n}$ and $y_{2}^{n}$ only from $x^{n}$ then the message
+receive then as the variable $y_{1}^{n}$ and $y_{2}^{n}$ which are
+the message receive for initial messages $\left((1,m_{t}),(1,m_{s})\right)$
+are independent tof the message received receive from $(m_{1}',m_{t}')\neq(1,m_{t})$
+and $(m_{2}',m_{s}')\neq(1,m_{s})$ . 
+
+In other word $y_{1}^{n}|t_{1,1}$ and $y_{2}^{n}|t_{1,1}$ are independent
+of $u_{1}^{n}(m_{1}',m_{t}')$ for $(m_{1}',m_{t}')\neq(1,m_{t})$
+and $u_{1}^{n}(m_{1}',m_{t}')$ for $(m_{1}',m_{t}')\neq(1,m_{t})$ 
+
+So we can apply the cuckoo's Egg lemma on 2 different case :
+\begin{align*}
+\Pr\left(u_{1}^{n}(m_{1}',m_{t}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{1}^{n},Y^{n})\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(u_{2}^{n}(m_{2}',m_{S}'),y_{2}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{2}^{n},Y^{n})\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon-}
+\end{align*}
+and so 
+\begin{align*}
+\Pr\left(\zeta_{12}|t_{1,1}\right) & =\sum_{\forall(m_{1}',m_{t}')\neq(1,m_{t})}\Pr\left(u_{1}^{n}(m_{1}',m_{t}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{1},Y)\right)\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <\sum_{\forall(m_{1}',m_{t}')\neq(1,m_{t})}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <\sum_{i=1}^{nR_{1}}\sum_{j=1}^{nR_{t}}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <2^{n(R_{1}+R_{t})}2^{-n(I(U_{1}^{n};Y_{1}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{12}|t_{1,1}\right) & <2^{-n(I(U_{1}^{n};Y_{1}^{n})-R_{1}-R_{t}-3\epsilon)}
+\end{align*}
+
+And by the exact same process on the second inequality we have 
+
+\begin{align*}
+\Pr\left(\zeta_{22}|t_{1,1}\right) & =\sum_{\forall(m_{2}',m_{s}')\neq(1,m_{s})}\Pr\left(u_{2}^{n}(m_{2}',m_{s}'),y_{1}^{n}|t_{1,1}\in\mathcal{A}_{\epsilon}^{(n)}(U_{2}^{n},Y^{n})\right)\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <\sum_{\forall(m_{2}',m_{s}')\neq(1,m_{s})}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <\sum_{i=1}^{nR_{2}}\sum_{j=1}^{nR_{s}}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <2^{n(R_{2}+R_{s})}2^{-n(I(U_{2}^{n};Y_{2}^{n})-3\epsilon)}\\
+\Pr\left(\zeta_{22}|t_{1,1}\right) & <2^{-n(I(U_{2}^{n};Y_{2}^{n})-R_{2}-R_{s}-3\epsilon)}
+\end{align*}
+
+So we have that these 2 probability vanish for $n\rightarrow\infty$
+as long as we have $R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})$ and $R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})$
+
+\subsection{(g)}
+
+we have 
+
+\[
+\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n}) & (i)\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n}) & (ii)\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n}) & (iii)
+\end{cases}
+\]
+
+If we take $R_{t}=I(U_{1}^{n};Y_{1}^{n})-R_{1}$ and $R_{s}=I(U_{2}^{n};Y_{2}^{n})-R_{2}$
+we get 
+
+\[
+\begin{cases}
+R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n})
+\end{cases}
+\]
+
+These are regular rate because from from $(i)$ and $(ii)$ we have
+$0\leq I(U_{1}^{n};Y_{1}^{n})-R_{1}$, $0\leq I(U_{2}^{n};Y_{2}^{n})-R_{2}$
+
+Also from $(iii)$ we have $I(U_{1}^{n};U_{2}^{n})\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-R_{2}-R_{1}\Rightarrow R_{s}+R_{t}\geq I(U_{1}^{n};U_{2}^{n})$
+
+so if arbitrary $R_{1},R_{2}$ satisfy (\ref{eq:8}) then we can always
+fix $R_{s},R_{t}$ for which (\ref{eq:7}) is satisfied
+
+\subsection{(h)}
+
+\begin{equation}
+\begin{cases}
+R_{1}+R_{t}\leq I(U_{1}^{n};Y_{1}^{n}) & (i)\\
+R_{2}+R_{s}\leq I(U_{2}^{n};Y_{2}^{n}) & (ii)\\
+R_{t}+R_{s}\geq I(U_{1}^{n};U_{2}^{n}) & (iii)
+\end{cases}\label{eq:7}
+\end{equation}
+
+then as $R_{t}\geq0$ and $R_{s}\geq0$, by losing precision on $(i)$
+and $(ii)$ we get 
+\[
+\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})
+\end{cases}
+\]
+
+Also by multiplying both side of $(iii)$ by $-1$ and then add to
+it $(i)$ we get
+\begin{align*}
+R_{2}+R_{s}+R_{1}+R_{t}-R_{t}-R_{s} & \leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})\\
+R_{2}+R_{1} & \leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{align*}
+
+and so we get that (\ref{eq:7}) implies:
+
+\begin{equation}
+\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{cases}\label{eq:8}
+\end{equation}
+
+
+\section{Ex 5}
+
+\subsection{(a)}
+
+We can fix $p(u_{1},u_{2})$ as
+\[
+p(u_{1},u_{2})=\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}
+\]
+
+because all element are positive (indicator function and size of set)
+then $p(u_{1},u_{2})\geq0$ for all $(u_{1},u_{2})$ and:
+
+\begin{align*}
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\sum_{\forall u_{1}}\sum_{\forall u_{2}}\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\sum_{\forall u_{2}}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\sum_{w\in f_{1}^{-1}(u_{1})}1\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\left|f_{1}^{-1}(u_{1})\right|\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{\forall u_{1}}1\\
+\sum_{\forall u_{1}}\sum_{\forall u_{2}}p(u_{1},u_{2}) & =1
+\end{align*}
+
+so this function is indeed a probability function.
+
+Then if $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing$
+so by definition $\forall w\in f_{1}^{-1}(u_{1})\,:\,f_{2}(w)\neq u_{2}$
+.in this case
+\begin{align*}
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}\boldsymbol{1}_{f_{2}(w)=u_{2}}\\
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}\sum_{w\in f_{1}^{-1}(u_{1})}\frac{1}{\left|f_{1}^{-1}(u_{1})\right|}*0\\
+p(u_{1},u_{2}) & =\frac{1}{\left|\mathcal{U}_{1}\right|}*0=0
+\end{align*}
+
+Let's note that as we know have $\Pr\left(f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\neq\varnothing\right)=0$
+we can rewrite $x(u_{1},u_{2})$ simply as $x(u_{1},u_{2})=\text{some }a\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})$
+so now $\forall u_{1}\in\mathcal{U}_{1}\forall u_{2}\in\mathcal{U}_{2}\;:\,x(u_{1},u_{2})\in f_{1}^{-1}(u_{1})\wedge x(u_{1},u_{2})\in f_{2}^{-1}(u_{2})$
+
+Now we want $\Pr(Y_{1}=U_{1})$. As deterministically we have $y_{1}=f_{1}(x(u_{1},y_{2}))$
+then 
+\[
+\Pr(Y_{1}=U_{1})=\Pr(Y_{1}=f_{1}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{1}^{-1}(U_{1})\right)=1
+\]
+ from what we derived in the previous paragraph. 
+
+Symmetrically: 
+\[
+\Pr(Y_{2}=U_{2})=\Pr(Y_{2}=f_{2}(x(U_{1},U_{2}))=\Pr\left(x(U_{1},U_{2})\in f_{2}^{-1}(U_{2})\right)=1
+\]
+
+
+\subsection{(b).}
+
+\paragraph{case when $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})=\varnothing$}
+
+if it exist $a$ and $b$ in such that $f_{1}^{-1}(a)\cap f_{2}^{-1}(b)=\varnothing$
+then by definition there's no $w\in\mathcal{X}$ such that $f_{2}(w)=a\wedge f_{2}(w)=b$. 
+
+So $\Pr_{f_{1}(Z),f_{2}(Z)}\left(a,b\right)=0$ . so if we set in
+our distribution $p(a,b)=0$, then $\Pr\left(f_{1}\left(x(a,b)\right),f_{2}\left(x(a,b)\right)\right)=0$
+and it's match.
+
+So here we have in distribution $\left(f_{1}(Z),f_{2}(Z)\right)=\left(f_{1}(x(U_{1},U_{2})),f_{2}(x(U_{1},U_{2}))\right)$
+
+\paragraph{case when $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})\protect\neq\varnothing$}
+
+Now that we know that 
+\[
+\Pr_{U_{1},U_{2}}\left(a,b|f_{1}^{-1}(a)\cap f_{2}^{-1}(b)\neq\varnothing\right)=0
+\]
+ then again we have $f_{1}\left(x(a,b)\right)=a$ and $f_{2}\left(x(a,b)\right)=b$.
+so we want to match the distribution of $\left(f_{1}(Z),f_{2}(Z)\right)$
+and $(U_{1},U_{2})$. And we have in general that for any function
+$f$ $\Pr\left(f(x)\right)=\sum_{w\,:\,f(w)=f(x)}\Pr(w)$. So 
+\begin{align*}
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w),f_{2}(w)=f_{1}(z),f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w)=f_{1}(z)\wedge f_{2}(w)=f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\,:\,f_{1}(w)=f_{1}(z)\wedge f_{2}(w)=f_{2}(z)}p_{z}(w)\\
+\Pr\left(f_{1}(z),f_{2}(z)\right) & =\sum_{w\in f_{1}^{-1}(f_{1}(z))\cap f_{2}^{-1}(f_{2}(z))}p_{z}(w)
+\end{align*}
+
+So if we set $p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)$
+
+we get in distribution $\left(\left(f_{1}(Z),f_{2}(Z)\right)=\left(U_{1},U_{2}\right)=\left(f_{1}(x(U_{1},U_{2}),f_{2}(x(U_{1},U_{2})\right)\right)$.
+
+\paragraph{Conclusion.}
+
+Let's note that if $f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})=\varnothing$
+then $\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)=0$,
+then we have that the distribution $p(u_{1},u_{2})=\sum_{z\in f_{1}^{-1}(u_{1})\cap f_{2}^{-1}(u_{2})}p_{z}(z)$
+makes that $\left(f_{1}(x(U_{1},U_{2}),f_{2}(x(U_{1},U_{2})\right)$
+and $\left(f_{1}(Z),f_{2}(Z)\right)$ to have the same distribution
+
+\subsection{(c)}
+
+we have 
+\[
+\mathcal{R}=\bigcup_{p(x)}\begin{cases}
+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(U_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(U_{1}^{n};Y_{1}^{n})+I(U_{2}^{n};Y_{2}^{n})-I(U_{1}^{n};U_{2}^{n})
+\end{cases}
+\]
+
+But for every $p(x)$ we can find $p(u_{1},u_{2})$ such that the
+distribution of $\left(U_{1}^{n},U_{2}^{n}\right)$ match the one
+of $\left(Y_{1}^{n},Y_{2}^{n}\right)$ and so we can reach 
+\begin{align}
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq I(Y_{1}^{n};Y_{1}^{n})\\
+R_{2}\leq I(Y_{2}^{n};Y_{2}^{n})\\
+R_{2}+R_{1}\leq I(Y_{1}^{n};Y_{1}^{n})+I(Y_{2}^{n};Y_{2}^{n})-I(Y_{1}^{n};Y_{2}^{n})
+\end{cases}\nonumber \\
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq H(Y_{1}^{n})\\
+R_{2}\leq H(Y_{2}^{n})\\
+R_{2}+R_{1}\leq H(Y_{1}^{n})+H(Y_{2}^{n})-\left(H(Y_{1}^{n})+H(Y_{2}^{n})-H(Y_{1}^{n};Y_{2}^{n})\right)
+\end{cases}\nonumber \\
+\bigcup_{p(x)} & \begin{cases}
+R_{1}\leq H(Y_{1}^{n})\\
+R_{2}\leq H(Y_{2}^{n})\\
+R_{2}+R_{1}\leq H(Y_{1}^{n};Y_{2}^{n})
+\end{cases}\label{eq:9}
+\end{align}
+
+and so rate region (\ref{eq:9}) is reachable
+
+\section{Ex 6}
+
+\subsection{(a)}
+
+$X=\begin{cases}
+\log p_{0}+p_{1}\\
+\log p_{2}\\
+\log p_{3}
+\end{cases}$
+
+we have 
+\begin{align*}
+H(p_{0}+p_{1},p_{2},p_{3}) & =-(p_{0}+p_{1})\log\left(p_{0}+p_{1}\right)-p_{3}\log(p_{3})-p_{2}\log(p_{2})\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <-(p_{0}+p_{1})\log\left(p_{0}+p_{1}\right)-(p_{3}+p_{2})\log\left(\frac{p_{3}+p_{2}}{1+1}\right)\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <H(p_{0}'+p_{1}',p_{2}',p_{3}')
+\end{align*}
+
+where we use the log rule inequality between first and second line.
+
+Also in the same way
+
+\begin{align*}
+H(p_{0},p_{1},p_{2}+p_{3}) & =-(p_{2}+p_{3})\log\left(p_{2}+p_{3}\right)-p_{1}\log(p_{1})-p_{0}\log(p_{0})\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <-(p_{2}+p_{3})\log\left(p_{2}+p_{3}\right)-(p_{1}+p_{0})\log\left(\frac{p_{1}+p_{0}}{1+1}\right)\\
+H(p_{0}+p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}'+p_{3}')
+\end{align*}
+
+and finally
+
+\begin{align*}
+H(p_{0},p_{1},p_{2},p_{3}) & =-p_{1}\log(p_{1})-p_{0}\log(p_{0})-p_{2}\log(p_{2})-p_{3}\log(p_{3})\\
+H(p_{0},p_{1},p_{2},p_{3}) & <-(p_{1}+p_{0})\log\left(\frac{p_{1}+p_{0}}{1+1}\right)-(p_{3}+p_{2})\log\left(\frac{p_{3}+p_{2}}{1+1}\right)\\
+H(p_{0},p_{1},p_{2},p_{3}) & <-\frac{p_{1}+p_{0}}{2}\log\left(\frac{p_{1}+p_{0}}{2}\right)-\frac{p_{1}+p_{0}}{2}\log\left(\frac{p_{1}+p_{0}}{2}\right)\\
+ & -\frac{p_{3}+p_{2}}{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)-\frac{p_{3}+p_{2}}{2}\log\left(\frac{p_{3}+p_{2}}{2}\right)\\
+H(p_{0},p_{1},p_{2},p_{3}) & <H(p_{0}',p_{1}',p_{2}',p_{3}')
+\end{align*}
+
+where we used the inequality twice.
+
+So he have that all upper bound in $\mathcal{R}_{p'}$ are bigger
+than upper bound in $\mathcal{R}_{p}$ so $\mathcal{R}_{p}\subseteq\mathcal{R}_{p'}$
+
+\subsection{(b)}
+
+The variable $X$ as 4 possible value, will will denote these probability
+by the vector $\vec{p_{X}}=(p_{0}p_{1},p_{3},p_{4})$ where $p_{i}=\Pr\left[X=i\right]$
+from these probabilities we can compute deterministacly (because $y_{i}(x)$
+are deterministic) the probability vector of $Y_{1}$ and $Y_{2}$:
+
+$\vec{p}_{Y_{1}}=(p_{0}+p_{1},p_{2},p_{3})$ and $\vec{p}_{Y_{2}}=(p_{0},p_{1},p_{2}+p_{3})$
+
+Also we can see that each value of $x$ gives one unique and distinct
+pair $y_{1}(x),y_{2}(x)$ and so we have 
+
+\[
+\begin{cases}
+p_{Y_{1},Y_{2}}(0,0)=p_{X}(0)=p_{0}\\
+p_{Y_{1},Y_{2}}(0,1)=p_{X}(1)=p_{1}\\
+p_{Y_{1},Y_{2}}(1,2)=p_{X}(2)=p_{2}\\
+p_{Y_{1},Y_{2}}(2,2)=p_{X}(3)=p_{3}
+\end{cases}
+\]
+
+and so by applying it to the rate region from Ex5 we get that that
+the rate region $\mathcal{R}$ is in fact the rate region $\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}}$
+where $\mathcal{R}_{\vec{p_{X}}}$ is the region define in (a) for
+a given vector $\vec{p_{X}}$
+
+We have that all distribution of the form $\vec{p_{X}}=(p,p,0.5-p,0.5-p)$
+with $0\leq p\leq0,5$ is a subset of all possible $\vec{p_{X}}$
+so 
+\begin{equation}
+\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}}\supseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,1-p,1-p)}\label{eq:5b1}
+\end{equation}
+
+Now for every channel $\vec{p_{X}}=(p_{0}p_{1},p_{3},p_{4})$ if we
+set that $p'=\frac{p_{1}+p_{0}}{2}$ and so $0,5-p'=\frac{p_{2}+p_{3}}{2}$
+we have from (a) that $\mathcal{R}_{(p_{0}p_{1},p_{3},p_{4})}\subseteq\mathcal{R}_{(p',p',0.5-p',0.5-p')}$
+and as $p_{0}+p_{1}\leq1\Rightarrow p'=\frac{p_{1}+p_{0}}{2}\leq0.5$
+then we have that $\mathcal{R}_{(p_{0}p_{1},p_{3},p_{4})}\subseteq\mathcal{R}_{(p,p,1-p,1-p)}$
+for a $p=p'\leq0.5$. so if we take the union on both side we get:
+\begin{equation}
+\bigcup_{\forall\vec{p_{X}})}\mathcal{R}_{\vec{p_{X}}}\subseteq\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\label{eq:5b2}
+\end{equation}
+
+and so (\ref{eq:5b1}) and (\ref{eq:5b2}) implies 
+
+\begin{align*}
+\bigcup_{\forall\vec{p_{X}}}\mathcal{R}_{\vec{p_{X}}} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
+\mathcal{R} & =\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\end{align*}
+
+
+\subsection{(c)}
+
+We take $p_{l}=\frac{1}{6}$ and $p_{r}=\frac{1}{3}$ 
+
+Preliminary result: 
+\begin{align*}
+H(p,p,0.5-p,0.5-p) & =-2p\log(p)-2(0.5-p)\log(0,5-p)\\
+H(p,p,0.5-p,0.5-p) & =-2p\left(\log(2p)-\log2\right)-(1-2p)(\log(1-2p)-\log2)\\
+H(p,p,0.5-p,0.5-p) & =h_{b}(2p)+\log2
+\end{align*}
+
+as we know that binary entropy is increasing for $x\leq0.5$ , if
+we have $a\leq0.25$ and $b\leq0.25$ :
+
+\begin{equation}
+H(a,a,0.5-a,0.5-a)\leq H(b,b,0.5-b,0.5-b)\iff a\leq b\label{eq:4bineq}
+\end{equation}
+
+In the same way:
+\begin{align*}
+H(p,p,1-2p) & =-2p\log(p)-(1-2p)\log(1-2p)\\
+H(p,p,1-2p) & =-2p\left(\log(2p)-\log2\right)-(1-2p)\log(1-2p)\\
+H(p,p,1-2p) & =h_{b}(2p)+2p\log2
+\end{align*}
+
+Both $h_{b}(2p)$ and $2p\log2$ are increasing for $2p\leq0.5$ so
+for $a\leq0.25$ and $b\leq0.25$ :
+
+\begin{equation}
+H(a,a,1-2p)\leq H(b,b,1-2b)\iff a\leq b\label{eq:4ineqR}
+\end{equation}
+
+
+\subsubsection{(i)}
+
+\paragraph{for every $p\leq\frac{1}{6}$ we have that }
+\begin{itemize}
+\item $R_{1}\leq H(p+p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$,
+because entropy always reach is maximum at equiprobability for the
+same number of possible value (here $3$)
+\item $R_{2}\leq H(p,p,1-2p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})$
+because $p\leq\frac{1}{6}\leq0.25$ and (\ref{eq:4ineqR})
+\item $R_{1}+R_{2}\leq H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})$
+from $p\leq\frac{1}{6}\leq0.25$ and (\ref{eq:4bineq})
+\end{itemize}
+So all bound of $\mathcal{R}_{p}$ are bounded by the bound of $\mathcal{R}_{\frac{1}{6}}$
+
+so $\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\mathcal{R}_{\frac{1}{6}}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+for all $p<\frac{1}{6}$
+
+\paragraph{Now for every $p\ge\frac{1}{3}$ we have:}
+\begin{itemize}
+\item $R_{1}\leq H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$
+\\
+because 
+\[
+H(p+p,0.5-p,0.5-p)\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p+p)\leq H(\frac{1}{6},\frac{1}{6},\frac{2}{3})
+\]
+ \\
+and $0.5-p\leq\frac{1}{6}\leq0.25$ and (\ref{eq:4ineqR})
+\item $R_{2}\leq H(p,p,1-2p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+because entropy always reach is maximum at equiprobability for the
+same number of possible value (here $3$)
+\item $R_{1}+R_{2}\leq H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$
+\\
+because 
+\[
+H(p,p,0.5-p,0.5-p)\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})\iff H(0.5-p,0.5-p,p,p)\leq H(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3})
+\]
+ \\
+and $0.5-p\leq\frac{1}{6}\leq0.25$ and (\ref{eq:4bineq})
+\end{itemize}
+So all bound of $\mathcal{R}_{p}$ are bounded by the bound of $\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}$
+
+$\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+for all $p>\frac{1}{3}$ 
+
+\paragraph{Finally obviously for $\frac{1}{6}\leq p'\leq\frac{1}{3}$:}
+
+$\mathcal{R}_{(p',p',0.5-p',0.5-p')}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+
+\paragraph{Conclusion:}
+
+By combination of all the previous paragraph we get that $\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\subseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+
+also as $\frac{1}{6}\leq p\leq\frac{1}{3}$ is a subset of $0\leq p\leq0,5$
+then $\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\supseteq\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+
+So 
+\begin{align*}
+\bigcup_{0\leq p\leq0,5}\mathcal{R}_{(p,p,0.5-p,0.5-p)} & =\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}\\
+\mathcal{R} & =\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\end{align*}
+
+
+\subsubsection{(ii)}
+
+In all the following we assume that $\epsilon<0$.
+
+We know that the entropy of a random variable with $3$ possible value
+only reach it's maximum $\log3$ at equiprobability.
+
+So $H(a,b,c)=\log3\iff a=b=c=\frac{1}{3}$ otherwise $H(a,b,c)<\log3$ 
+
+\paragraph{Lower bound can't be larger than $\frac{1}{6}$:}
+
+We have:
+\begin{itemize}
+\item $\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$ , because $\log3=H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\item $0\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$, by basic property
+of entropy and
+\item $\log3+0\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$.
+by explicit computation
+\end{itemize}
+so 
+\[
+(\log3,0)\in\mathcal{R}_{\left(\frac{1}{6},\frac{1}{6},\frac{1}{3},\frac{1}{3}\right)}
+\]
+
+Now for every $\mathcal{R}_{(p,p,0.5-p,0.5-p)}$ with $\frac{1}{6}+\epsilon\leq p$
+we have that $2p=\frac{1}{3}+2\epsilon\neq\frac{1}{3}$ so the first
+bound we get $R_{1}\leq H(p+p,0.5-p,0.5-p)<\log3$ so $(\log3,0)\notin\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+for any $\frac{1}{6}+\epsilon\leq p$
+
+So 
+\[
+(\log3,0)\notin\bigcup_{\frac{1}{6}+\epsilon\leq p\leq\frac{1}{3}}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\]
+
+
+\paragraph{Upper bound can't be smaller than $\frac{1}{3}$:}
+\begin{itemize}
+\item $0\leq H(\frac{2}{3},\frac{1}{6},\frac{1}{6})$, by basic property
+of entropy and
+\item $\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$ , because $\log3=H(\frac{1}{3},\frac{1}{3},\frac{1}{3})$
+\item $0+\log3\leq H(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6})$.
+by explicit computation
+\end{itemize}
+So 
+\[
+(0,\log3)\in\mathcal{R}_{\left(\frac{1}{3},\frac{1}{3},\frac{1}{6},\frac{1}{6}\right)}
+\]
+
+Now for every $\mathcal{R}_{(p,p,0.5-p,0.5-p)}$ with $p\leq\frac{1}{3}-\epsilon$
+we have that $p=\frac{1}{3}-\epsilon\neq\frac{1}{3}$ so in the second
+bound we get $R_{2}\leq H(p,p,1-2p)<\log3$ so $(0,\log3)\notin\mathcal{R}_{(p,p,0.5-p,0.5-p)}$
+for any $p\leq\frac{1}{3}-\epsilon$ so:
+\[
+(0,\log3)\notin\bigcup_{\frac{1}{6}\leq p\leq\frac{1}{3}-\epsilon}\mathcal{R}_{(p,p,0.5-p,0.5-p)}
+\]
+
+So our born wan't be any smaller than $\frac{1}{6}$ or larger than
+$\frac{1}{3}$
+
+\subsection{(e)}
+\begin{enumerate}
+\item $H\left(p_{0},0.5-\frac{p_{0}}{2}+0.5-\frac{p_{0}}{2}\right)=H(p_{0},1-p_{0})=H(p_{0},p_{1}+p_{2})$
+so $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+and $\mathcal{R}_{\vec{p}}$ have the same bounds on $R_{1}$
+\item $H\left(0.5-\frac{p_{2}}{2}+0.5-\frac{p_{2}}{2},p_{2}\right)=H(1-p_{2},p_{2})=H(p_{0},+p_{1},p_{2})$
+so $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+and $\mathcal{R}_{\vec{p}}$ have the same bounds on $R_{2}$
+\item 
+\begin{align*}
+H(p_{0},p_{1},p_{2}) & =-p_{0}\log p_{0}-p_{1}\log p_{1}-p_{2}\log p_{2}\\
+H(p_{0},p_{1},p_{2}) & <-p_{0}\log p_{0}-\left(p_{1}+p_{2}\right)\log\left(\frac{p_{1}+p_{2}}{1+1}\right)\\
+H(p_{0},p_{1},p_{2}) & <-p_{0}\log p_{0}-2\left(\frac{1-p_{0}}{2}\right)\log\left(\frac{1-p_{0}}{2}\right)\\
+H(p_{0},p_{1},p_{2}) & <H\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)
+\end{align*}
+Where the inequality come from the log-sum inequality.\\
+As $H(p_{0},p_{1},p_{2})=H(p_{2},p_{0},p_{1})$ we also have $H(p_{0},p_{1},p_{2})<H\left(p_{2},0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2}\right)=H\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)$\\
+So the bound on $R_{1}+R_{2}$ is $\mathcal{R}_{\vec{p}}$ in smaller
+than the ones in $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+and $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$ 
+\item $H\left(p_{0}+0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)=h_{b}\left(0.5-\frac{p_{0}}{2}\right)$
+and $H(p_{0}+p_{1},p_{2})=h_{b}\left(p_{2}\right)$
+\item $H(0.5-\frac{p_{2}}{2},0.5+\frac{p_{2}}{2})=h_{b}\left(0.5-\frac{p_{2}}{2}\right)$
+and $H(p_{0},p_{1}+p_{2})=h_{b}\left(p_{0}\right)$
+\end{enumerate}
+If $p_{2}\leq0.5-\frac{p_{0}}{2}$ then we have as $p_{0}\leq1$ $p_{2}\leq0.5-\frac{p_{0}}{2}\leq0.5$
+and so $h_{b}\left(p_{2}\right)\leq h_{p}\left(0.5-\frac{p_{0}}{2}\right)$.
+that's implies, with 1. and 2. that all bound in $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+are bigger ore equal than the ones of $\mathcal{R}_{\vec{p}}$ and
+so $\mathcal{R}_{\vec{p}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+
+If $p_{0}\leq0.5-\frac{p_{2}}{2}$ then we have as $p_{2}\leq1$ $p_{0}\leq0.5-\frac{p_{2}}{2}\leq0.5$
+and so $h_{b}\left(p_{0}\right)\leq h_{p}\left(0.5-\frac{p_{2}}{2}\right)$.
+that's implies, with 1. and 2. that all bound in $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+are bigger ore equal than the ones of $\mathcal{R}_{\vec{p}}$ and
+so $\mathcal{R}_{\vec{p}}\subseteq\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+
+If $p_{2}>0.5-\frac{p_{0}}{2}$ and $p_{0}>0.5-\frac{p_{2}}{2}$ then
+by addition we get 
+\begin{align*}
+p_{0}+p_{1} & >1-\frac{1}{2}(p_{0}+p_{1})\\
+1-p_{1} & >\frac{2}{3}\\
+p_{1} & <\frac{1}{3}
+\end{align*}
+
+Also we must have for any point $(R_{1},R_{2}):$
+
+If $R_{1}\leq h_{p}\left(0.5-\frac{p_{2}}{2}\right)$ then as $R_{2}\leq H(p_{0}+p_{1},p_{2})$
+we have $(R_{1},R_{2})\in\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+
+If $R_{2}\leq h_{p}\left(0.5-\frac{p_{0}}{2}\right)$ then as $R_{1}\leq H(p_{0},p_{1}+p_{2})$
+we have $(R_{1},R_{2})\in\mathcal{R}_{\left(0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2},p_{0}\right)}$
+
+If there's a point $(R_{1},R_{2})$ in $\mathcal{R}_{\vec{p}}$ such
+that $h_{b}\left(p_{2}\right)\geq R_{1}>h\left(0.5-\frac{p_{0}}{2}\right)$
+and $h_{b}\left(p_{0}\right)\geq R_{2}>h_{p}\left(0.5-\frac{p_{2}}{2}\right)$ 
+
+then 
+\begin{align*}
+R_{1}+R_{2} & >h\left(0.5-\frac{p_{0}}{2}\right)+h_{p}\left(0.5-\frac{p_{2}}{2}\right)\\
+R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >-\left(0.5-\frac{p_{0}}{2}\right)\log\left(0.5-\frac{p_{0}}{2}\right)-\left(0.5+\frac{p_{0}}{2}\right)\log\left(0.5+\frac{p_{0}}{2}\right)\\
+ & -\left(0.5-\frac{p_{2}}{2}\right)\log\left(0.5-\frac{p_{2}}{2}\right)-\left(0.5+\frac{p_{2}}{2}\right)\log\left(0.5+\frac{p_{2}}{2}\right)\\
+ & +p_{0}\log\left(p_{0}\right)+\left(p_{2}\right)\log\left(p_{2}\right)+\left(p_{1}\right)\log\left(p_{1}\right)\\
+R_{1}+R_{2}-H(p_{0},p_{1},p_{2}) & >0
+\end{align*}
+
+Where we used the fact that $p_{2}>0.5-\frac{p_{0}}{2}$ and $p_{0}>0.5-\frac{p_{2}}{2}$
+then that $-x\log x$ increase for $x>0.5$
+
+and finally that as $p_{1}<\frac{1}{3}$ then $-\left(p_{1}\right)\log\left(p_{1}\right)<\left(\frac{1}{3}\right)\log\left(\frac{1}{3}\right)<1$
+because $-x\log x$ increasing on $x\leq\frac{1}{3}$
+
+So a such point can't exist in $\mathcal{R}_{\vec{p}}$ so in all
+case $\mathcal{R}_{\vec{p}}$ is either in $\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}$
+or $\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}$
+so in every for every $\mathcal{R}_{\vec{p}}$ so 
+\[
+\mathcal{R}_{\vec{p_{X}}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}\cup\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p_{2}\right)}
+\]
+
+
+\subsection{(f) }
+
+form our information in the channel we can deterministically compute
+the probability vector of $Y_{1}$ and $Y_{2}$ and $(Y_{1},Y_{2})$given
+$\vec{p}_{X}=(p_{0},p_{1},p_{2})$
+\begin{align*}
+\vec{p}_{Y_{1}}= & (p_{0},p_{1}+p_{2})\\
+\vec{p}_{Y_{2}}= & (p_{0}+p_{1},p_{2})\\
+\vec{p}_{Y_{1},Y_{2}}= & (p_{0},p_{1},p_{2})
+\end{align*}
+
+So $H(Y_{1})=H(p_{0},p_{1}+p_{2})$, $H(Y_{2})=H(p_{0}+p_{1},p_{2})$
+and $H(Y_{1},Y_{2})=H(p_{0},p_{1},p_{2})$
+
+So by applying this to rate region from Ex 5 we get 
+\[
+\mathcal{R}=\bigcup_{\forall\vec{p}_{X}}\mathcal{R}_{\vec{p}_{X}}
+\]
+
+As all $(p,0.5-\frac{p}{2},0.5-\frac{p}{2})$ for $0\leq p\leq1$
+and all $(0.5-\frac{p}{2},0.5-\frac{p}{2},p)$ for $0\leq p\leq1$
+are a subset of all possible $\vec{p}_{X}$ then 
+\[
+\mathcal{R}\supseteq\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+but as for all possible $\vec{p}_{X}$ We have (from (e)) that $\mathcal{R}_{\vec{p}_{X}}\subseteq\mathcal{R}_{\left(p_{0},0.5-\frac{p_{0}}{2},0.5-\frac{p_{0}}{2}\right)}\cup\mathcal{R}_{\left(0.5-\frac{p_{2}}{2},0.5-\frac{p_{2}}{2},p\right)}$
+then every $\mathcal{R}_{\vec{p}_{X}}$ is include in $\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)$
+and so the union of all possible $\mathcal{R}_{\vec{p}_{X}}$ is included
+too
+\[
+\mathcal{R}\subseteq\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+This mean 
+\[
+\mathcal{R}=\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)
+\]
+
+
+\subsection{(g)}
+
+\subsubsection{(i)}
+
+\begin{align*}
+\mathcal{R} & =\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\right)\cup\left(\bigcup_{0\leq p\leq1}\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
+\mathcal{R} & =\bigcup_{0\leq p\leq1}\left(\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)\\
+R & =\bigcup_{0\leq p\leq1}\left\{ (R_{1},R_{2})\,:\,R_{1}\leq h_{b}(p)\,R_{2}\leq H\left(0.5-\frac{p}{2},0.5+\frac{p}{2}\right)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} \\
+ & \cup\left\{ (R_{1},R_{2})\,:\,R_{1}\leq h_{b}\left(0.5-\frac{p}{2}\right)\,R_{2}\leq h_{b}(p)\,R_{1}+R_{2}\leq H\left(p,0.5-\frac{p}{2},0.5-\frac{p}{2}\right)\right\} 
+\end{align*}
+
+We can chose ether $p_{l}=0$ or $p_{r}=\frac{1}{3}$ 
+
+if $p>\frac{1}{3}$ then we' have that every point of $\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}$
+is in $\mathcal{R}_{(0.5-\frac{0.5-p}{2},0.5-\frac{0.5-p}{2},0.5-p)}$
+because as $p>\frac{1}{3}$ then $0.5-p>p$ and so $h_{b}(0.5-p)\geq h_{b}(p)$
+and $h_{b}(p)\leq h_{b}(0.5-\frac{p}{2})$ and also so all 3 bound
+are over bounded
+
+the reverse work: every point of $\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}$
+is in $\mathcal{R}_{(0.5-p,0.5-\frac{0.5-p}{2},0.5-\frac{0.5-p}{2})}$ 
+
+\subsubsection{(ii)}
+
+So $\mathcal{R}=\bigcup_{0\leq p\leq\frac{1}{3}}\left(\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}\right)$
+
+if we take $0+\epsilon$ instead of $0$ we have that the point $(0,1)\in\mathcal{R}_{(0,0.5,0.5)}$
+isn't in our rate because because for all $0<p<\frac{1}{3}$ $h_{b}(p)<1$
+and $h_{b}(0.5-\frac{p}{2})<1$ because $0.5-\frac{p}{2}<0$ and so
+isn't in any $\mathcal{R}_{(p,0.5-\frac{p}{2},0.5-\frac{p}{2})}\cup\mathcal{R}_{(0.5-\frac{p}{2},0.5-\frac{p}{2},p)}$
+for $0<p\leq\frac{1}{3}$
+\end{document}
